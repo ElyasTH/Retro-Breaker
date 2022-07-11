@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 368ec7d97956ad54c8065482496ca4e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tr: {instanceID: 0}
+  - FourLives: {instanceID: 0}
+  - ThreeLives: {instanceID: 0}
+  - TwoLives: {instanceID: 0}
+  - oneLife: {instanceID: 0}
+  - fireBall: {instanceID: 0}
+  - lockAndLaunch: {instanceID: 0}
+  - lifeBlock: {instanceID: 0}
+  - ballInc: {instanceID: 0}
+  - destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
