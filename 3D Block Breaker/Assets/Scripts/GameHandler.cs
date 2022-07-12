@@ -14,7 +14,8 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI scoreText;
     private int score = 0;
     public GameObject fireball;
-    public void loseLife(){
+    private int combo = 0;
+    public void loseLife(GameObject ball){
         lifeCount--;
         LifeText.text = lifeCount.ToString();
 
@@ -25,10 +26,12 @@ public class GameHandler : MonoBehaviour
             music.pitch = 0.6f;
             player.SetActive(false);
             Destroy(ball.gameObject);
+            this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
         }
         else
         {
             ball.GetComponent<BallMovement>().reset();
+            this.ball = ball;
         }
     }
 
@@ -54,5 +57,13 @@ public class GameHandler : MonoBehaviour
         Instantiate(fireball, new Vector3(2, 1.02f, -13), Quaternion.identity);
         Instantiate(fireball, new Vector3(4, 1.02f, -13), Quaternion.identity);
         Instantiate(fireball, new Vector3(6, 1.02f, -13), Quaternion.identity);
+    }
+
+    public void addCombo(){
+        combo++;
+    }
+
+    public void resetCombo(){
+        combo = 0;
     }
 }

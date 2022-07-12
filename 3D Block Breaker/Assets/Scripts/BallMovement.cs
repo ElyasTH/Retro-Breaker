@@ -22,7 +22,7 @@ public class BallMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!locked){
-            rb.AddForce(rb.velocity.normalized * Time.deltaTime * 5);
+            if (rb.velocity.magnitude < 15) rb.AddForce(rb.velocity.normalized * Time.deltaTime * 100);
 
             if (Mathf.Abs(gameObject.transform.position.z-lastZ) < 0.1){
                 checkZDelay++;
@@ -40,11 +40,11 @@ public class BallMovement : MonoBehaviour
             {
                 checkZDelay = 0;
                 if (gameHandler.ballCount == 1){
-                    gameHandler.loseLife();
+                    gameHandler.loseLife(this.gameObject);
                 }
-                else{ 
-                    Destroy(this.gameObject);
+                else{
                     gameHandler.ballCount--;
+                    Destroy(this.gameObject);
                 }
             } 
         }

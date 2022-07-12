@@ -106,7 +106,7 @@ public class cubeMovement : MonoBehaviour
 
         if (transform.position.z < -9.5){
             BlockDestroyerScript.init();
-            gameHandler.GetComponent<GameHandler>().loseLife();
+            gameHandler.GetComponent<GameHandler>().loseLife(gameHandler.GetComponent<GameHandler>().ball);
             Destroy(this.gameObject);
         }
     }
@@ -123,8 +123,8 @@ public class cubeMovement : MonoBehaviour
                 gameHandler.GetComponent<GameHandler>().fireballPowerUp();
             }
             else if (isBallIncrease){
-                // Instantiate(gameHandler.GetComponent<GameHandler>().ball, transform.position, Quaternion.identity);
-                // gameHandler.GetComponent<GameHandler>().addBall();
+                Instantiate(GameObject.FindGameObjectWithTag("Ball"), transform.position, Quaternion.identity);
+                gameHandler.GetComponent<GameHandler>().addBall();
             }
             else if (isLaunch){
                 BallMovement.lockAndLaunch = true;
