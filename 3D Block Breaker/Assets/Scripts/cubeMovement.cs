@@ -5,6 +5,7 @@ using UnityEngine;
 public class cubeMovement : MonoBehaviour
 {
     public int lives = 0;
+    public int startlives = 0;
     public int score;
     public Transform tr;
     private float speed = 0.24f;
@@ -17,12 +18,23 @@ public class cubeMovement : MonoBehaviour
     public Material lifeBlock;
     public Material ballInc;
     bool isLifeBlock, isBallIncrease, isFireBall, isLaunch;
+
+
     public GameObject destroyParticle;
     private GameObject gameHandler;
+
+
+    private int diffculty = 0;
 
     void Start()
     {
         gameHandler = GameObject.Find("GameHandler");
+        gameHandler.GetComponent<GameHandler>().blockCount += 1;
+        diffculty = gameHandler.GetComponent<GameHandler>().getlevel() + 3;
+        if (diffculty > 5)
+            diffculty -= 2;
+        if (diffculty/3 >= 1000)
+            diffculty = 1000;
 
         int Special = Random.Range(1, 90);
         if (Special > 3 && Special < 9)
@@ -54,13 +66,13 @@ public class cubeMovement : MonoBehaviour
         else
         {
             lives = Random.Range(1, 1000);
-            if (lives < 30 && lives > 0)
+            if (lives < 30 + diffculty && lives > 0)
                 lives = score = 4;
-            else if (lives >= 30 && lives < 100)
+            else if (lives >= 30 + diffculty && lives < 100 + diffculty / 2 + diffculty)
                 lives = score = 3;
-            else if (lives >= 100 && lives < 350)
+            else if (lives >= 100 + +diffculty + diffculty /2 && lives < 350 + diffculty + diffculty /2 + diffculty / 3)
                 lives = score = 2;
-            else if (lives >= 350 && lives <= 1000)
+            else if (lives >= 350 + diffculty / 3 + diffculty /2 + diffculty && lives <= 1000)
                 lives = score = 1;
 
             switch (lives)
@@ -79,6 +91,7 @@ public class cubeMovement : MonoBehaviour
                     break;
             }
         }
+        startlives = lives;
     }
     void Update()
     {
@@ -104,12 +117,12 @@ public class cubeMovement : MonoBehaviour
                 break;
         }
 
-        if (transform.position.z < -9.5){
-            gameHandler.GetComponent<GameHandler>().getDamaged();
-            BlockDestroyerScript.init();
-            gameHandler.GetComponent<GameHandler>().loseLife();
-            Destroy(this.gameObject);
-        }
+       // if (transform.position.z < -9.5){
+        //   // gameHandler.GetComponent<GameHandler>().getDamaged();
+        //    BlockDestroyerScript.init();
+        //    gameHandler.GetComponent<GameHandler>().loseLife();
+         //   Destroy(this.gameObject);
+      //  }
     }
 
     public void ChangeLife() 
@@ -137,5 +150,7 @@ public class cubeMovement : MonoBehaviour
 
     void OnDestroy(){
         Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
+        gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
     }
 }
