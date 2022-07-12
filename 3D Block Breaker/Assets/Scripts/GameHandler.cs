@@ -21,15 +21,10 @@ public class GameHandler : MonoBehaviour
     public GameObject cam;
     public GameObject xpCanM;
 
-    
-
     [Header("Audio")]
     public AudioSource music;
     public TextMeshProUGUI scoreText;
-    private int score = 0;
-    public GameObject fireball;
     private int combo = 0;
-    public void loseLife(GameObject ball){
     public AudioSource powerUp;
     public AudioSource levelUp;
     public AudioSource coin1;
@@ -51,7 +46,7 @@ public class GameHandler : MonoBehaviour
         level.maxValue = maxXP;
     }
 
-    public void loseLife(){
+    public void loseLife(GameObject ball){
         lifeCount--;
         LifeText.text = lifeCount.ToString();
         StartCoroutine(Shake(0.2f, 0.2f));
@@ -151,7 +146,7 @@ public class GameHandler : MonoBehaviour
         slider.value = health;
         if (health == 0)
         {
-            loseLife();
+            loseLife(this.ball);
             health = 1f;
         }
     }
