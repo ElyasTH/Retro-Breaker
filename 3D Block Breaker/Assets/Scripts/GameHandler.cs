@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
@@ -13,7 +14,16 @@ public class GameHandler : MonoBehaviour
     public AudioSource music;
     public TextMeshProUGUI scoreText;
     private int score = 0;
+    private float health = 1f;
     public GameObject fireball;
+
+    //soundEffects
+    public AudioSource powerUp;
+
+    //UI
+    public Slider slider;
+
+
     public void loseLife(){
         lifeCount--;
         LifeText.text = lifeCount.ToString();
@@ -33,6 +43,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void addLife(){
+        PlaySound(powerUp);
         lifeCount++;
         LifeText.text = lifeCount.ToString();
     }
@@ -47,6 +58,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void fireballPowerUp(){
+        PlaySound(powerUp);
         Instantiate(fireball, new Vector3(-6, 1.02f, -13), Quaternion.identity);
         Instantiate(fireball, new Vector3(-4, 1.02f, -13), Quaternion.identity);
         Instantiate(fireball, new Vector3(-2, 1.02f, -13), Quaternion.identity);
@@ -55,4 +67,24 @@ public class GameHandler : MonoBehaviour
         Instantiate(fireball, new Vector3(4, 1.02f, -13), Quaternion.identity);
         Instantiate(fireball, new Vector3(6, 1.02f, -13), Quaternion.identity);
     }
+
+
+    public void getDamaged() 
+    {
+        health -= 0.5f;
+        slider.value = health;
+        if (health == 0)
+        {
+            loseLife();
+            health = 1f;
+        }
+    }
+
+
+    //sounds
+    public void PlaySound(AudioSource ad) 
+    {
+        ad.Play();
+    }
+
 }

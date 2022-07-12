@@ -105,6 +105,7 @@ public class cubeMovement : MonoBehaviour
         }
 
         if (transform.position.z < -9.5){
+            gameHandler.GetComponent<GameHandler>().getDamaged();
             BlockDestroyerScript.init();
             gameHandler.GetComponent<GameHandler>().loseLife();
             Destroy(this.gameObject);
