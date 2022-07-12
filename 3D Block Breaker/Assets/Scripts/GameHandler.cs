@@ -20,11 +20,11 @@ public class GameHandler : MonoBehaviour
     public GameObject fireball;
     public GameObject cam;
     public GameObject xpCanM;
+    public GameObject comboCanvas;
 
     [Header("Audio")]
     public AudioSource music;
     public TextMeshProUGUI scoreText;
-    private int combo = 0;
     public AudioSource powerUp;
     public AudioSource levelUp;
     public AudioSource coin1;
@@ -37,9 +37,11 @@ public class GameHandler : MonoBehaviour
     public int xp = 40;
     public int currentLevel = 1;
     public int maxXP = 1000;
+    public int combo = 0;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI LifeText;
     public TextMeshProUGUI xpText;
+    public TextMeshProUGUI comboText;   
 
     private void Start()
     {
@@ -49,6 +51,7 @@ public class GameHandler : MonoBehaviour
     public void loseLife(GameObject ball){
         lifeCount--;
         LifeText.text = lifeCount.ToString();
+        resetCombo();
         StartCoroutine(Shake(0.2f, 0.2f));
 
         Instantiate(deathEffect, player.transform.position, Quaternion.identity);
@@ -134,10 +137,14 @@ public class GameHandler : MonoBehaviour
 
     public void addCombo(){
         combo++;
+        if (!comboText.IsActive() && combo >= 2) comboText.gameObject.SetActive(true);
+        comboText.text = "Combo X" + combo;
+        StartCoroutine(ShakeAny(comboCanvas, 0.1f, combo*0.02f));
     }
 
     public void resetCombo(){
         combo = 0;
+        comboText.gameObject.SetActive(false);
     }
 
     public void getDamaged() 

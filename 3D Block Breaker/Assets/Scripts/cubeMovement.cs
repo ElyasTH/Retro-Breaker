@@ -128,7 +128,9 @@ public class cubeMovement : MonoBehaviour
     {
         lives--;
         if (lives <= 0){
-            gameHandler.GetComponent<GameHandler>().addScore(score);
+            if (gameHandler.GetComponent<GameHandler>().combo >= 1)
+                gameHandler.GetComponent<GameHandler>().addScore(score*gameHandler.GetComponent<GameHandler>().combo);
+            else gameHandler.GetComponent<GameHandler>().addScore(score);
             if (isLifeBlock){
                 gameHandler.GetComponent<GameHandler>().addLife();
             }
@@ -142,7 +144,7 @@ public class cubeMovement : MonoBehaviour
             else if (isLaunch){
                 BallMovement.lockAndLaunch = true;
             }
-
+            gameHandler.GetComponent<GameHandler>().addCombo();
             Destroy(this.gameObject);
         }
     }

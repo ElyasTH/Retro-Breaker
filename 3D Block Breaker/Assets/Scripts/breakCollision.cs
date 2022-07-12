@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 public class breakCollision : MonoBehaviour
 {
     public GameHandler gameHandler;
     public GameObject wallParticle;
     public GameObject dustParticle;
+    public UnityEvent onCollisionEvent;
 
     void OnCollisionEnter(Collision col)
     {
@@ -21,5 +23,9 @@ public class breakCollision : MonoBehaviour
             gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.04f));
             Instantiate(wallParticle, gameObject.transform.position, Quaternion.identity);
         }
+        else if (col.gameObject.tag == "Player"){
+            gameHandler.resetCombo();
+        }
+        onCollisionEvent?.Invoke();
     }
 }
