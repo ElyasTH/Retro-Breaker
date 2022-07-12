@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BallMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BallMovement : MonoBehaviour
 
     public static bool lockAndLaunch = false;
     private float lockAndLaunchTime = 5;
+    public UnityEvent onCollisionEvent;
 
     void Start(){
         rb.AddForce(0,0,startForce);
@@ -74,5 +76,6 @@ public class BallMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision col){
         if (col.gameObject.tag == "Player" && lockAndLaunch) this.locked = true;
+        onCollisionEvent?.Invoke();
     }
 }
