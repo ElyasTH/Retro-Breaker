@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499016582207}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -121,6 +123,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499016582192
 Animator:
@@ -171,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499022471988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.0200005, z: -3.47}
+  m_LocalPosition: {x: -5, y: 1.0200005, z: -3.4700012}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -254,6 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499022471989}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -263,6 +271,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499022471990
 Animator:
@@ -313,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499063048364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: 0.13000202}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: 0.13000202}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,6 +408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499063048365}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -405,6 +419,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499063048366
 Animator:
@@ -455,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499087811172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.04, y: 1.0200005, z: -2.1499975}
+  m_LocalPosition: {x: -5.040001, y: 1.0200005, z: -2.1499977}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -538,6 +556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499087811173}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -547,6 +567,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499087811174
 Animator:
@@ -680,6 +704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499115179499}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -689,6 +715,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499115179500
 Animator:
@@ -739,7 +769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499167030988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.93, y: 1.0200005, z: -5.200006}
+  m_LocalPosition: {x: -4.9300003, y: 1.0200005, z: -5.2000036}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -822,6 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499167030989}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -831,6 +863,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499167030990
 Animator:
@@ -881,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499195155021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.0200005, z: -2.8199997}
+  m_LocalPosition: {x: -5, y: 1.0200005, z: -2.8200016}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -964,6 +1000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499195155022}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -973,6 +1011,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499195155023
 Animator:
@@ -1106,6 +1148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499216962105}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1115,6 +1159,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499216962106
 Animator:
@@ -1165,7 +1213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499245064515}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.35, y: 1.0200005, z: -1.230001}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -1.2300014}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1248,6 +1296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499245064516}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1257,6 +1307,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499245064517
 Animator:
@@ -1307,7 +1361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499250781131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: -3.7600021}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: -3.7600012}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1390,6 +1444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499250781132}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1399,6 +1455,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499250781133
 Animator:
@@ -1449,7 +1509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499263759535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.35, y: 1.0200005, z: -2.8799996}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -2.8799992}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1532,6 +1592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499263759520}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1541,6 +1603,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499263759521
 Animator:
@@ -1709,6 +1775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499326206360}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1718,6 +1786,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499326206361
 Animator:
@@ -1768,7 +1840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499330386161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: -1.4000092}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: -1.4000092}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1851,6 +1923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499330386162}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -1860,6 +1934,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499330386163
 Animator:
@@ -1910,7 +1988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499395677080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7700043, y: 1.0200005, z: -2.4700012}
+  m_LocalPosition: {x: 2.7700043, y: 1.0200005, z: -2.4700003}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1993,6 +2071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499395677081}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2002,6 +2082,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499395677082
 Animator:
@@ -2052,7 +2136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499407743248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.27, y: 1.0200005, z: -1.2099988}
+  m_LocalPosition: {x: -3.2699966, y: 1.0200005, z: -1.210001}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2135,6 +2219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499407743249}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2144,6 +2230,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499407743250
 Animator:
@@ -2194,7 +2284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499410581743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.770004, y: 1.0200005, z: 3.2699976}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: 3.2699976}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2277,6 +2367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499410581728}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2286,6 +2378,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499410581729
 Animator:
@@ -2336,7 +2432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499514949238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.98, y: 1.0200005, z: -1.21}
+  m_LocalPosition: {x: -4.9800034, y: 1.0200005, z: -1.210001}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2419,6 +2515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499514949239}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2428,6 +2526,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499514949192
 Animator:
@@ -2478,7 +2580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499520033980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.050003, y: 1.0200005, z: -1.3700058}
+  m_LocalPosition: {x: 4.050003, y: 1.0200005, z: -1.3700027}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2561,6 +2663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499520033981}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2570,6 +2674,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499520033982
 Animator:
@@ -2620,7 +2728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499595066224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.91000366, y: 1.0200005, z: 0.14}
+  m_LocalPosition: {x: 0.91000366, y: 1.0200005, z: 0.14000034}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2703,6 +2811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499595066225}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2712,6 +2822,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499595066226
 Animator:
@@ -2762,7 +2876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499623180370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.0200005, z: -3.7600021}
+  m_LocalPosition: {x: -5, y: 1.0200005, z: -3.7600012}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2845,6 +2959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499623180371}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2854,6 +2970,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499623180372
 Animator:
@@ -2987,6 +3107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499797258869}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -2996,6 +3118,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499797258870
 Animator:
@@ -3086,7 +3212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499826134857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1800003, y: 1.0200005, z: -2.4700012}
+  m_LocalPosition: {x: -3.1800003, y: 1.0200005, z: -2.4700003}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3169,6 +3295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499826134858}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3178,6 +3306,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499826134859
 Animator:
@@ -3228,7 +3360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499831388191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.770004, y: 1.0200005, z: -2.4700012}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: -2.4700003}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3311,6 +3443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499831388176}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3320,6 +3454,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499831388177
 Animator:
@@ -3370,7 +3508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837499851996121}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9600048, y: 1.0200005, z: -2.3899992}
+  m_LocalPosition: {x: 0.9600067, y: 1.0200005, z: -2.3899984}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3453,6 +3591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499851996122}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3462,6 +3602,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499851996123
 Animator:
@@ -3595,6 +3739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837499908685850}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3604,6 +3750,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837499908685851
 Animator:
@@ -3694,7 +3844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500074550855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.35, y: 1.0200005, z: -5.820001}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -5.8200016}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3777,6 +3927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500074550872}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3786,6 +3938,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500074550873
 Animator:
@@ -3836,7 +3992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500096657197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.35, y: 1.0200005, z: -4.4299994}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -4.4299984}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3919,6 +4075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500096657198}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -3928,6 +4086,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500096657199
 Animator:
@@ -4061,6 +4223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500139158758}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4070,6 +4234,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500139158759
 Animator:
@@ -4120,7 +4288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500203797999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 1.0200005, z: -5.12}
+  m_LocalPosition: {x: 2.449997, y: 1.0200005, z: -5.120002}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4203,6 +4371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500203797984}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4212,6 +4382,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500203797985
 Animator:
@@ -4262,7 +4436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500215345769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.770004, y: 1.0200005, z: 1.7399988}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: 1.7399988}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4345,6 +4519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500215345770}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4354,6 +4530,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500215345771
 Animator:
@@ -4487,6 +4667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500301348286}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4496,6 +4678,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500301348275
 Animator:
@@ -4546,7 +4732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500407763065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.97, y: 1.0200005, z: 3.3499994}
+  m_LocalPosition: {x: 0.9700012, y: 1.0200005, z: 3.3499994}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4629,6 +4815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500407763066}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4638,6 +4826,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500407763067
 Animator:
@@ -4688,7 +4880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500423773354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.3500004, y: 1.0200005, z: -0.24000213}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -0.2400055}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4771,6 +4963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500423773355}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4780,6 +4974,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500423773356
 Animator:
@@ -4913,6 +5111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500476195635}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -4922,6 +5122,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500476195636
 Animator:
@@ -4972,7 +5176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500599688882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: -2.54}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: -2.54}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5055,6 +5259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500599688883}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5064,6 +5270,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500599688884
 Animator:
@@ -5114,7 +5324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500608425998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: -4.0300055}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: -4.0300055}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5197,6 +5407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500608425999}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5206,6 +5418,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500608425984
 Animator:
@@ -5256,7 +5472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500611972389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.99, y: 1.0200005, z: -2.39}
+  m_LocalPosition: {x: -4.989998, y: 1.0200005, z: -2.3899984}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5339,6 +5555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500611972390}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5348,6 +5566,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500611972391
 Animator:
@@ -5398,7 +5620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500678887775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1800003, y: 1.0200005, z: -2.23}
+  m_LocalPosition: {x: -3.1800003, y: 1.0200005, z: -2.2299995}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5481,6 +5703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500678887760}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5490,6 +5714,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500678887761
 Animator:
@@ -5540,7 +5768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500694037433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.770004, y: 1.0200005, z: 0.14000034}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: 0.14000034}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5623,6 +5851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500694037434}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5632,6 +5862,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500694037435
 Animator:
@@ -5682,7 +5916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500733286371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9500046, y: 1.0200005, z: -3.76}
+  m_LocalPosition: {x: 0.9500046, y: 1.0200005, z: -3.7600012}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5765,6 +5999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500733286372}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5774,6 +6010,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500733286373
 Animator:
@@ -5824,7 +6064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500756106703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: 1.68}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: 1.6800013}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5907,6 +6147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500756106688}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -5916,6 +6158,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500756106689
 Animator:
@@ -6000,7 +6246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837500943516625}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.770004, y: 1.0200005, z: -1.1000013}
+  m_LocalPosition: {x: 4.7700043, y: 1.0200005, z: -1.1000013}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6083,6 +6329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500943516626}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6092,6 +6340,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500943516627
 Animator:
@@ -6282,6 +6534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837500991465618}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6291,6 +6545,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837500991465619
 Animator:
@@ -6341,7 +6599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837501028095511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.35, y: 1.0200005, z: -7.1000013}
+  m_LocalPosition: {x: -7.3499985, y: 1.0200005, z: -7.1000004}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6424,6 +6682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837501028095592}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6433,6 +6693,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837501028095593
 Animator:
@@ -6566,6 +6830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837501049063050}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6575,6 +6841,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837501049063051
 Animator:
@@ -6625,7 +6895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837501094975617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: -1.2600012}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: -1.2600012}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6708,6 +6978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837501094975618}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6717,6 +6989,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837501094975619
 Animator:
@@ -6767,7 +7043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4125837501113839824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.0200005, z: 3.329999}
+  m_LocalPosition: {x: -1.1800003, y: 1.0200005, z: 3.329999}
   m_LocalScale: {x: 1.4, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6850,6 +7126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4125837501113839825}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -6859,6 +7137,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4125837501113839826
 Animator:

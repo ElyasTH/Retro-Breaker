@@ -8,7 +8,7 @@ public class cubeMovement : MonoBehaviour
     public int startlives = 0;
     public int score;
     public Transform tr;
-    private float speed = 0.24f;
+    private float speed = 0.6f;
     public Material FourLives;
     public Material ThreeLives;
     public Material TwoLives;
@@ -17,6 +17,12 @@ public class cubeMovement : MonoBehaviour
     public Material lockAndLaunch;
     public Material lifeBlock;
     public Material ballInc;
+    public GameObject fireParticle;
+    public GameObject healParticle;
+    public GameObject ballIncreaseParticle;
+    public GameObject lockParticle;
+    private static float destroyerDelay = 10;
+    private static bool isDestroying = false;
     bool isLifeBlock, isBallIncrease, isFireBall, isLaunch;
 
 
@@ -41,22 +47,33 @@ public class cubeMovement : MonoBehaviour
         {
             isFireBall = true;
             GetComponent<Renderer>().material = fireBall;
+            GameObject fire = Instantiate(fireParticle, transform.position, Quaternion.identity);
+            fire.transform.rotation = new Quaternion(-90,0,0,90);
+            fire.transform.parent = transform;
         }
         else if (Special > 10 && Special < 14)
         {
-            isLaunch
-     = true;
+            isLaunch = true;
             GetComponent<Renderer>().material = lockAndLaunch;
+            GameObject lockLaunch = Instantiate(lockParticle, transform.position, Quaternion.identity);
+            lockLaunch.transform.rotation = new Quaternion(-90,0,0,90);
+            lockLaunch.transform.parent = transform;
         }
         else if (Special == 2)
         {
             isLifeBlock = true;
             GetComponent<Renderer>().material = lifeBlock;
+            GameObject heal = Instantiate(healParticle, transform.position, Quaternion.identity);
+            heal.transform.rotation = new Quaternion(-90,0,0,90);
+            heal.transform.parent = transform;
         }
         else if (Special > 15 && Special < 20)
         {
             isBallIncrease = true;
             GetComponent<Renderer>().material = ballInc;
+            GameObject ballIncrease = Instantiate(ballIncreaseParticle, transform.position, Quaternion.identity);
+            ballIncrease.transform.rotation = new Quaternion(-90,0,0,90);
+            ballIncrease.transform.parent = transform;
         }
 
 
@@ -117,10 +134,19 @@ public class cubeMovement : MonoBehaviour
                 break;
         }
 
-        if (transform.position.z < -9.5){
+        if (transform.position.z < -9.5 && !isDestroying){
+            isDestroying = true;
             BlockDestroyerScript.init();
-            gameHandler.GetComponent<GameHandler>().loseLife(gameHandler.GetComponent<GameHandler>().ball);
+            gameHandler.GetComponent<GameHandler>().getDamaged();
             Destroy(this.gameObject);
+        }
+
+        if (isDestroying){
+            destroyerDelay -= Time.deltaTime;
+            if (destroyerDelay <= 0){
+                isDestroying = false;
+                destroyerDelay = 10;
+            }
         }
     }
 
@@ -143,15 +169,16 @@ public class cubeMovement : MonoBehaviour
             }
             else if (isLaunch){
                 BallMovement.lockAndLaunch = true;
+                gameHandler.GetComponent<GameHandler>().PlaySound(gameHandler.GetComponent<GameHandler>().powerUp);
             }
             gameHandler.GetComponent<GameHandler>().addCombo();
+            gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
+            gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
             Destroy(this.gameObject);
         }
     }
 
     void OnDestroy(){
         Instantiate(destroyParticle, transform.position, Quaternion.identity);
-        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
-        gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
     }
 }

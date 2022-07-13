@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 3505945317905718526}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -220,6 +222,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &3932502524329580456
 Animator:
@@ -354,6 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 6844961147664135870}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -363,6 +371,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &7369639629321213823
 Animator:
@@ -497,6 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 5129851593012904752}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -506,6 +520,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &1950231268528912255
 Animator:
@@ -640,6 +658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 227770752191524692}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -649,6 +669,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &6266215319021615549
 Animator:
@@ -845,6 +869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 0
+  startlives: 0
+  score: 0
   tr: {fileID: 4035319131130957454}
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
@@ -854,6 +880,10 @@ MonoBehaviour:
   lockAndLaunch: {fileID: 2100000, guid: 58e90eff0ffc7e54084cc2774a3e4977, type: 2}
   lifeBlock: {fileID: 2100000, guid: e1f15933832cc374699aef48dd25ac4f, type: 2}
   ballInc: {fileID: 2100000, guid: 777d6c8870d58304cac6192c4ca61e08, type: 2}
+  fireParticle: {fileID: 160798, guid: e3341cd0b29d79a4895de26f271c310d, type: 3}
+  healParticle: {fileID: 111332, guid: d92d5f49a69eca04ca2836ee6ec67555, type: 3}
+  ballIncreaseParticle: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0, type: 3}
+  lockParticle: {fileID: 189512, guid: e2a6556875ac55a44b3e6e6a62cdb381, type: 3}
   destroyParticle: {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
 --- !u!95 &4136670300720599790
 Animator:

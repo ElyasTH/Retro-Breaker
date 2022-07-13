@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
     [HideInInspector]
     public int ballCount = 1;
     private int score = 0;
-    private float health = 1f;
+    public float health = 1f;
 
     [Header("GameObjects")]
     public GameObject deathEffect;
@@ -77,6 +77,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void addBall(){
+        PlaySound(powerUp);
         ballCount++;
     }
 
@@ -140,18 +141,20 @@ public class GameHandler : MonoBehaviour
         if (!comboText.IsActive() && combo >= 2) comboText.gameObject.SetActive(true);
         comboText.text = "Combo X" + combo;
         StartCoroutine(ShakeAny(comboCanvas, 0.1f, combo*0.02f));
+        comboText.transform.localScale = new Vector3(comboText.transform.localScale.x+0.0005f, comboText.transform.localScale.y+0.0005f,comboText.transform.localScale.z);
     }
 
     public void resetCombo(){
         combo = 0;
         comboText.gameObject.SetActive(false);
+        comboText.transform.localScale = new Vector3(0.02f, 0.02f, 1);
     }
 
     public void getDamaged() 
     {
         health -= 0.5f;
         slider.value = health;
-        if (health == 0)
+        if (health <= 0)
         {
             loseLife(this.ball);
             health = 1f;

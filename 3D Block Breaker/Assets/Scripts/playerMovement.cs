@@ -5,7 +5,6 @@ public class playerMovement : MonoBehaviour
     public int speed = 15;
     public Transform player;
     public float max_acceleration = 1;
-
     public float current_acceleration = 0;
     void FixedUpdate()
     {
@@ -23,7 +22,7 @@ public class playerMovement : MonoBehaviour
         else if (current_acceleration < 0 && !Input.GetKey("a")) current_acceleration += 0.05f;
         if (current_acceleration > -0.05 && current_acceleration < 0.05) current_acceleration = 0;
 
-        if ((current_acceleration < 0 && player.position.x < -6.8) || (current_acceleration > 0 && player.position.x > 5))
+        if ((current_acceleration < 0 && player.position.x < -6.7) || (current_acceleration > 0 && player.position.x > 5.6))
         {
             current_acceleration = 0;
         }

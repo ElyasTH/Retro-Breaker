@@ -6,6 +6,8 @@ public class breakCollision : MonoBehaviour
     public GameHandler gameHandler;
     public GameObject wallParticle;
     public GameObject dustParticle;
+    public GameObject playerParticle;
+    public AudioSource playerCollision;
     public UnityEvent onCollisionEvent;
 
     void OnCollisionEnter(Collision col)
@@ -25,6 +27,8 @@ public class breakCollision : MonoBehaviour
         }
         else if (col.gameObject.tag == "Player"){
             gameHandler.resetCombo();
+            Instantiate(playerParticle, gameObject.transform.position, Quaternion.identity);
+            playerCollision.Play();
         }
         onCollisionEvent?.Invoke();
     }
