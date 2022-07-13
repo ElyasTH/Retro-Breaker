@@ -60,11 +60,6 @@ public class GameHandler : MonoBehaviour
         levelText.text = PlayerPrefs.GetInt("level").ToString();
     }
 
-    private void Update()
-    {
-        Debug.Log(combo);
-    }
-
     public void loseLife(GameObject ball){
         lifeCount--;
         LifeText.text = lifeCount.ToString();
