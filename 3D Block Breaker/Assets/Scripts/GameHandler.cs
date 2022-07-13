@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameHandler : MonoBehaviour
     public GameObject cam;
     public GameObject xpCanM;
     public GameObject comboCanvas;
+    public GameObject GameOverCan;
 
     [Header("Audio")]
     public AudioSource music;
@@ -45,7 +47,17 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
+        int i = 1;
+        if (PlayerPrefs.GetInt("level") > 1)
+            while (i < PlayerPrefs.GetInt("level"))
+            {
+                maxXP *= 3;
+                i++;
+            }
+
+        currentLevel = PlayerPrefs.GetInt("level");
         level.maxValue = maxXP;
+        levelText.text = PlayerPrefs.GetInt("level").ToString();
     }
 
     public void loseLife(GameObject ball){
@@ -57,10 +69,16 @@ public class GameHandler : MonoBehaviour
         Instantiate(deathEffect, player.transform.position, Quaternion.identity);
         if (lifeCount == 0)
         {
+            PlayerPrefs.SetInt("level", currentLevel);
+            if(PlayerPrefs.GetInt("highScore") < score)
+            PlayerPrefs.SetInt("highScore", score);
+
             Time.timeScale = 0.2f;
             music.pitch = 0.6f;
             player.SetActive(false);
             Destroy(ball.gameObject);
+            GameOverCan.SetActive(true);
+            GameOverCan.transform.position = new Vector3(cam.transform.position.x, GameOverCan.transform.position.y, GameOverCan.transform.position.z);
             this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
         }
         else
@@ -82,13 +100,13 @@ public class GameHandler : MonoBehaviour
     }
 
     public void addScore(int score){
-        this.score += score;
+        this.score += score + (combo + 2) / 2 + PlayerPrefs.GetInt("level");
         scoreText.text = this.score.ToString();
     }
 
     public void addXP(int addxp) 
     {
-        xp += addxp;
+        xp += addxp * (combo+1)/2;
         level.value = xp;
 
              xpText.text = "+" +  xp.ToString();
@@ -211,5 +229,15 @@ public class GameHandler : MonoBehaviour
         adu.Play();
     }
 
+
+    //Buttons
+    public void onRestart() 
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void onMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }

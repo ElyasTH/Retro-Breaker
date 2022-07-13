@@ -152,11 +152,11 @@ public class cubeMovement : MonoBehaviour
 
     public void ChangeLife() 
     {
+        gameHandler.GetComponent<GameHandler>().addCombo();
+        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(1, 17) * startlives * diffculty / 5 * (PlayerPrefs.GetInt("level") + 1) * 10);
         lives--;
         if (lives <= 0){
-            if (gameHandler.GetComponent<GameHandler>().combo >= 1)
-                gameHandler.GetComponent<GameHandler>().addScore(score*gameHandler.GetComponent<GameHandler>().combo);
-            else gameHandler.GetComponent<GameHandler>().addScore(score);
+            gameHandler.GetComponent<GameHandler>().addScore(score);
             if (isLifeBlock){
                 gameHandler.GetComponent<GameHandler>().addLife();
             }
