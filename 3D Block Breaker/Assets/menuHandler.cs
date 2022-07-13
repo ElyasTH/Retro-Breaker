@@ -65,7 +65,7 @@ public class menuHandler : MonoBehaviour
                 ErrorText.text = "Invalid Characters";
             }
         }
-        if (playerNameInput.text.Length > 10) 
+        if (playerNameInput.text.Length > 13) 
         {
             IsValid = false;
             ErrorText.text = "Name Is Too Long";
