@@ -176,6 +176,7 @@ public class GameHandler : MonoBehaviour
         {
             loseLife(this.ball);
             health = 1f;
+            slider.value = health;
         }
     }
 
