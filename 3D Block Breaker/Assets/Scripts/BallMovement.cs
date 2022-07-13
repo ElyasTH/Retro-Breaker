@@ -9,6 +9,7 @@ public class BallMovement : MonoBehaviour
     public Rigidbody rb;
     public int startForce = 200;
     public GameObject player;
+    public GameObject powerUpLight;
     public GameHandler gameHandler;
     private float lastZ = 0;
     public int checkZDelay = 0;
@@ -62,9 +63,11 @@ public class BallMovement : MonoBehaviour
 
         if (lockAndLaunch){
             lockAndLaunchTime -= Time.deltaTime;
+            powerUpLight.SetActive(true);
             if (lockAndLaunchTime <= 0){
                 lockAndLaunch = false;
                 lockAndLaunchTime = 5;
+                powerUpLight.SetActive(false);
             }
         }
     }
