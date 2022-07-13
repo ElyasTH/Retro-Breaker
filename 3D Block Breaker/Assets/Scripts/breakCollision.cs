@@ -15,7 +15,6 @@ public class breakCollision : MonoBehaviour
         {
             col.gameObject.GetComponent<cubeMovement>().ChangeLife();
             Instantiate(dustParticle, gameObject.transform.position, Quaternion.identity);
-            gameHandler.GetComponent<GameHandler>().addXP(Random.Range(13, 27));
             gameHandler.GetComponent<GameHandler>().blockCount -= 1;
         }
         else if (col.gameObject.tag == "Wall")

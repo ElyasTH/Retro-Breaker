@@ -104,13 +104,13 @@ public class GameHandler : MonoBehaviour
     }
 
     public void addScore(int score){
-        this.score += score;
+        this.score += score + (combo + 2) / 2 + PlayerPrefs.GetInt("level");
         scoreText.text = this.score.ToString();
     }
 
     public void addXP(int addxp) 
     {
-        xp += addxp;
+        xp += addxp * (combo+1)/2;
         level.value = xp;
 
              xpText.text = "+" +  xp.ToString();

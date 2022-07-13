@@ -127,6 +127,7 @@ public class cubeMovement : MonoBehaviour
     public void ChangeLife() 
     {
         gameHandler.GetComponent<GameHandler>().addCombo();
+        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(1, 17) * startlives * diffculty / 5 * (PlayerPrefs.GetInt("level") + 1) * 10);
         lives--;
         if (lives <= 0){
             gameHandler.GetComponent<GameHandler>().addScore(score);
@@ -150,7 +151,7 @@ public class cubeMovement : MonoBehaviour
 
     void OnDestroy(){
         Instantiate(destroyParticle, transform.position, Quaternion.identity);
-        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5 * PlayerPrefs.GetInt("level") * 10);
+        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5 * (PlayerPrefs.GetInt("level") + 1) * 10);
         gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
     }
 }
