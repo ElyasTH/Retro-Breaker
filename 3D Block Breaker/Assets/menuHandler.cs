@@ -208,4 +208,8 @@ public class menuHandler : MonoBehaviour
         ad.Play();
         leaderBoardHolder.SetActive(false);
     }
+
+    public void exitGame(){
+        Application.Quit();
+    }
 }

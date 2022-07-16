@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class blockSpawnScript : MonoBehaviour
 {
-
-
     public float maxTime = 1f;
     [SerializeField]
     private float startX;
@@ -18,14 +16,16 @@ public class blockSpawnScript : MonoBehaviour
     public GameObject layout3;
     public GameObject layout4;
     public GameObject layout5;
+    public GameHandler gameHandler;
 
-    private void Awake()
+    public void startSpawner()
     {
         Vector3 randSpawnPos = new Vector3(startX, 0, 0.2f);
         Instantiate(brickLayout, randSpawnPos, Quaternion.identity);
     }
     private void Update()
     {
+        if (!gameHandler.isGameStarted) return;
         if (timer > maxTime)
         {
             int x = Random.Range(1, 5);

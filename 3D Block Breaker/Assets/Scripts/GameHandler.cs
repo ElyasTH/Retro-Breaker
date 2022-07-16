@@ -12,6 +12,8 @@ public class GameHandler : MonoBehaviour
     public int ballCount = 1;
     private int score = 0;
     public float health = 1f;
+    [HideInInspector]
+    public bool isGameStarted = false;
 
     [Header("GameObjects")]
     public GameObject deathEffect;
@@ -23,6 +25,7 @@ public class GameHandler : MonoBehaviour
     public GameObject xpCanM;
     public GameObject comboCanvas;
     public GameObject GameOverCan;
+    public GameObject blockSpawner;
 
     [Header("Audio")]
     public AudioSource music;
@@ -45,7 +48,8 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI LifeText;
     public TextMeshProUGUI xpText;
-    public TextMeshProUGUI comboText;   
+    public TextMeshProUGUI comboText;  
+    public TextMeshProUGUI guideText; 
 
     private void Start()
     {
@@ -63,6 +67,14 @@ public class GameHandler : MonoBehaviour
     }
 
     void Update(){
+        if (!isGameStarted){
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)){
+                isGameStarted = true;
+                blockSpawner.GetComponent<blockSpawnScript>().startSpawner();
+                guideText.gameObject.SetActive(false);
+                music.gameObject.SetActive(true);
+            }
+        }
         if (isSliderChanging) updateSlider();
     }
 
