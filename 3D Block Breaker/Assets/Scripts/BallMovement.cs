@@ -55,7 +55,7 @@ public class BallMovement : MonoBehaviour
             gameObject.transform.position = lockPosition.position;
         }
 
-        if (Input.GetMouseButton(0) && locked){
+        if ((Input.GetMouseButton(0) || Input.GetKeyUp(KeyCode.Space)) && locked){
             locked = false;
             rb.velocity = new Vector3(0,0,0);
             rb.AddForce(0, 0, startForce);

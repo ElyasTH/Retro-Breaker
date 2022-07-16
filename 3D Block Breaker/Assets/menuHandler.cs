@@ -8,7 +8,9 @@ using LootLocker.Requests;
 public class menuHandler : MonoBehaviour
 {
     public AudioSource ad;
+    public AudioSource errorSound;
     public GameObject infoTab;
+    public GameObject leaderBoardHolder;
     public TextMeshProUGUI level;
     public TextMeshProUGUI score;
     public TextMeshProUGUI scoreLeaderBoard;
@@ -39,17 +41,13 @@ public class menuHandler : MonoBehaviour
             if (PlayerPrefs.GetInt("highScore") != 0)
                 StartCoroutine(submitScoreRoutine());
             counter = 1;
-        }if (counter == 1 && submitIsDone) 
-        {
-            StartCoroutine(fetchHighScores());
-            counter = 2;
         }
     }
 
-    public void SetPlayerName() 
+    public void SetPlayerName()
     {
         bool IsValid = true;
-        for (int i = 0; i < members.Length; i++) 
+        for (int i = 0; i < members.Length; i++)
         {
             if (playerNameInput.text == members[i].player.name)
             {
@@ -57,7 +55,7 @@ public class menuHandler : MonoBehaviour
                 ErrorText.text = "This Name Is Taken";
             }
         }
-        for (int i = 0; i < playerNameInput.text.Length; i++) 
+        for (int i = 0; i < playerNameInput.text.Length; i++)
         {
             if (playerNameInput.text[i] >= '!' && playerNameInput.text[i] <= '+')
             {
@@ -65,15 +63,16 @@ public class menuHandler : MonoBehaviour
                 ErrorText.text = "Invalid Characters";
             }
         }
-        if (playerNameInput.text.Length > 13) 
+        if (playerNameInput.text.Length > 13)
         {
             IsValid = false;
             ErrorText.text = "Name Is Too Long";
         }
-       
+
 
         if (IsValid)
         {
+            ad.Play();
             ErrorText.text = "";
             LootLockerSDKManager.SetPlayerName(playerNameInput.text, (responce) =>
             {
@@ -88,34 +87,38 @@ public class menuHandler : MonoBehaviour
                 }
             });
         }
+        else 
+        {
+            errorSound.Play();
+        }
     }
-    public void onPlay() 
+    public void onPlay()
     {
         SceneManager.LoadScene(1);
         ad.Play();
     }
-    public void onInfo() 
+    public void onInfo()
     {
         ad.Play();
         infoTab.SetActive(true);
     }
-    public void onInfoClose() 
+    public void onInfoClose()
     {
         ad.Play();
         infoTab.SetActive(false);
     }
 
-    public void admin() 
+    public void admin()
     {
         PlayerPrefs.DeleteAll();
     }
 
-    IEnumerator loginRoutine() 
+    IEnumerator loginRoutine()
     {
         bool done = false;
         LootLockerSDKManager.StartGuestSession((responce) =>
         {
-            if (responce.success) 
+            if (responce.success)
             {
                 Debug.Log("Login Success");
                 PlayerPrefs.SetString("PlayerID", responce.player_id.ToString());
@@ -128,7 +131,7 @@ public class menuHandler : MonoBehaviour
 
     //leaderBoard
 
-    public IEnumerator submitScoreRoutine() 
+    public IEnumerator submitScoreRoutine()
     {
         bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");
@@ -140,7 +143,7 @@ public class menuHandler : MonoBehaviour
                  done = true;
                  submitIsDone = true;
              }
-             else 
+             else
              {
                  Debug.Log("Submit Error");
                  done = true;
@@ -152,7 +155,7 @@ public class menuHandler : MonoBehaviour
     public IEnumerator fetchHighScores()
     {
         bool done = false;
-        LootLockerSDKManager.GetScoreList(stageLeaderBoardID, 7, 0, (responce) => 
+        LootLockerSDKManager.GetScoreList(stageLeaderBoardID, 7, 0, (responce) =>
         {
             if (responce.success)
             {
@@ -180,12 +183,29 @@ public class menuHandler : MonoBehaviour
                 playerName.text = tempPlayerNames;
                 scoreLeaderBoard.text = tempPlayerScores;
             }
-            else 
+            else
             {
                 Debug.Log("Failed Fetching LeaderBoard");
                 done = true;
             }
         });
         yield return new WaitWhile(() => done = false);
+    }
+
+    public void openLeaderBoard()
+    {
+        ad.Play();
+        leaderBoardHolder.SetActive(true);
+        if (counter == 1 && submitIsDone)
+        {
+            StartCoroutine(fetchHighScores());
+            counter = 2;
+        }
+
+    }
+    public void closeLeaderBoard() 
+    {
+        ad.Play();
+        leaderBoardHolder.SetActive(false);
     }
 }

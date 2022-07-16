@@ -131,14 +131,17 @@ public class GameHandler : MonoBehaviour
             StartCoroutine(Shake(2f, 0.05f));
             levelupText.SetActive(false);
             levelupText.SetActive(true);
-            lifeCount++;
-            LifeText.text = lifeCount.ToString();
-            PlaySound(levelUp);
             currentLevel++;
             maxXP *=3;
             level.maxValue = maxXP;
             level.value = 40;
             levelText.text = currentLevel.ToString();
+            if (currentLevel % 2 == 0 || currentLevel == 1)
+            {
+                lifeCount++;
+                LifeText.text = lifeCount.ToString();
+            }
+            PlaySound(levelUp);
             xp = 40;
         }
     }
