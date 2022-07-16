@@ -15,7 +15,7 @@ public class FireballMovement : MonoBehaviour
             Instantiate(impactParticle, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             if (col.gameObject.tag == "Block"){
-                col.gameObject.GetComponent<cubeMovement>().ChangeLife();
+                col.gameObject.GetComponent<cubeMovement>().ChangeLife(false);
             } 
         }
     }

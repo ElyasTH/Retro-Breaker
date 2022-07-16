@@ -21,7 +21,8 @@ public class cubeMovement : MonoBehaviour
     public GameObject healParticle;
     public GameObject ballIncreaseParticle;
     public GameObject lockParticle;
-    private static float destroyerDelay = 10;
+    [SerializeField]
+    private static float destroyerDelay = 150;
     private static bool isDestroying = false;
     bool isLifeBlock, isBallIncrease, isFireBall, isLaunch;
 
@@ -134,11 +135,11 @@ public class cubeMovement : MonoBehaviour
                 break;
         }
 
-        if (transform.position.z < -9.5 && !isDestroying){
+        if (transform.position.z < -9 && !isDestroying){
             isDestroying = true;
             BlockDestroyerScript.init();
             gameHandler.GetComponent<GameHandler>().getDamaged();
-            Destroy(this.gameObject);
+            ChangeLife(true);
         }
 
         if (isDestroying){
@@ -150,35 +151,37 @@ public class cubeMovement : MonoBehaviour
         }
     }
 
-    public void ChangeLife() 
+    public void ChangeLife(bool isDestroyer) 
     {
-        gameHandler.GetComponent<GameHandler>().addCombo();
-        gameHandler.GetComponent<GameHandler>().addXP(Random.Range(1, 17) * startlives * diffculty / 5 * (PlayerPrefs.GetInt("level") + 1) * 10);
-        lives--;
-        if (lives <= 0){
-            gameHandler.GetComponent<GameHandler>().addScore(score);
-            if (isLifeBlock){
-                gameHandler.GetComponent<GameHandler>().addLife();
+        if (!isDestroyer){
+            gameHandler.GetComponent<GameHandler>().addXP(Random.Range(1, 17) * startlives * diffculty / 5 * (PlayerPrefs.GetInt("level") + 1) * 10);
+            lives--;
+            if (lives <= 0){
+                gameHandler.GetComponent<GameHandler>().addScore(score);
+                if (isLifeBlock){
+                    gameHandler.GetComponent<GameHandler>().addLife();
+                }
+                else if (isFireBall){
+                    gameHandler.GetComponent<GameHandler>().fireballPowerUp();
+                }
+                else if (isBallIncrease){
+                    Instantiate(GameObject.FindGameObjectWithTag("Ball"), transform.position, Quaternion.identity);
+                    gameHandler.GetComponent<GameHandler>().addBall();
+                }
+                else if (isLaunch){
+                    BallMovement.lockAndLaunch = true;
+                    gameHandler.GetComponent<GameHandler>().PlaySound(gameHandler.GetComponent<GameHandler>().powerUp);
+                }
+                gameHandler.GetComponent<GameHandler>().addCombo();
+                gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
+                gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
+                Instantiate(destroyParticle, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
             }
-            else if (isFireBall){
-                gameHandler.GetComponent<GameHandler>().fireballPowerUp();
-            }
-            else if (isBallIncrease){
-                Instantiate(GameObject.FindGameObjectWithTag("Ball"), transform.position, Quaternion.identity);
-                gameHandler.GetComponent<GameHandler>().addBall();
-            }
-            else if (isLaunch){
-                BallMovement.lockAndLaunch = true;
-                gameHandler.GetComponent<GameHandler>().PlaySound(gameHandler.GetComponent<GameHandler>().powerUp);
-            }
-            gameHandler.GetComponent<GameHandler>().addCombo();
-            gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
-            gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
+        }
+        else{
+            Instantiate(destroyParticle, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
-    }
-
-    void OnDestroy(){
-        Instantiate(destroyParticle, transform.position, Quaternion.identity);
     }
 }

@@ -12,10 +12,11 @@ public class breakCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        if (gameObject.GetComponent<BallMovement>().locked) return;
         Vector3 startingPos = transform.position;
         if (col.gameObject.tag == "Block")
         {
-            col.gameObject.GetComponent<cubeMovement>().ChangeLife();
+            col.gameObject.GetComponent<cubeMovement>().ChangeLife(false);
             Instantiate(dustParticle, gameObject.transform.position, Quaternion.identity);
             gameHandler.GetComponent<GameHandler>().blockCount -= 1;
         }

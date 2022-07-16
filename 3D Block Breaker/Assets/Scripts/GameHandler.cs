@@ -35,6 +35,8 @@ public class GameHandler : MonoBehaviour
 
     [Header("UI")]
     public Slider slider;
+    private bool isSliderChanging;
+    public float currentSliderValue = 1f;
     public Slider level;
     public int xp = 40;
     public int currentLevel = 1;
@@ -60,12 +62,18 @@ public class GameHandler : MonoBehaviour
         levelText.text = PlayerPrefs.GetInt("level").ToString();
     }
 
+    void Update(){
+        if (isSliderChanging) updateSlider();
+    }
+
     public void loseLife(GameObject ball){
         lifeCount--;
+        if (lifeCount > 0) health = 1f;
+        else health = 0f;
+        isSliderChanging = true;
         LifeText.text = lifeCount.ToString();
         resetCombo();
         StartCoroutine(Shake(0.2f, 0.2f));
-
         Instantiate(deathEffect, player.transform.position, Quaternion.identity);
         if (lifeCount == 0)
         {
@@ -92,6 +100,8 @@ public class GameHandler : MonoBehaviour
         PlaySound(powerUp);
         lifeCount++;
         LifeText.text = lifeCount.ToString();
+        health = 1f;
+        isSliderChanging = true;
     }
 
     public void addBall(){
@@ -162,7 +172,8 @@ public class GameHandler : MonoBehaviour
         if (!comboText.IsActive() && combo >= 2) comboText.gameObject.SetActive(true);
         comboText.text = "Combo X" + combo;
         StartCoroutine(ShakeAny(comboCanvas, 0.1f, combo*0.02f));
-        comboText.transform.localScale = new Vector3(comboText.transform.localScale.x+0.0005f, comboText.transform.localScale.y+0.0005f,comboText.transform.localScale.z);
+        if (comboText.transform.localScale.x < 0.06)
+            comboText.transform.localScale = new Vector3(comboText.transform.localScale.x+0.0005f, comboText.transform.localScale.y+0.0005f,comboText.transform.localScale.z);
     }
 
     public void resetCombo(){
@@ -174,13 +185,31 @@ public class GameHandler : MonoBehaviour
     public void getDamaged() 
     {
         health -= 0.5f;
-        slider.value = health;
-        if (health <= 0)
+        isSliderChanging = true;
+        resetCombo();
+    }
+
+    public void updateSlider(){
+        if (currentSliderValue > health){
+            currentSliderValue -= 0.02f;
+            slider.value = currentSliderValue;
+        }
+        else if (currentSliderValue < health){
+            currentSliderValue += 0.02f;
+            slider.value = currentSliderValue;
+        }
+        else if (currentSliderValue <= 0)
         {
             loseLife(this.ball);
-            health = 1f;
-            slider.value = health;
+            isSliderChanging = false;
+            if (lifeCount > 0) slider.value = health = currentSliderValue = 1f;
         }
+        else isSliderChanging = false;
+
+        if (Mathf.Abs(currentSliderValue - health) < 0.02f){
+            slider.value = currentSliderValue = health;
+            isSliderChanging = false;    
+        } 
     }
 
     public int getlevel() { return currentLevel; }
