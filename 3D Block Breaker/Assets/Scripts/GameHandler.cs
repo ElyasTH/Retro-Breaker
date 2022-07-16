@@ -202,7 +202,15 @@ public class GameHandler : MonoBehaviour
     }
 
     public void updateSlider(){
-        if (currentSliderValue > health){
+        if (currentSliderValue <= 0 && lifeCount > 0)
+        {
+            loseLife(this.ball);
+            slider.value = health = currentSliderValue = 1f;
+        }
+        else if (lifeCount <= 0){
+            slider.value = health = currentSliderValue = 0;
+        }
+        else if (currentSliderValue > health){
             currentSliderValue -= 0.02f;
             slider.value = currentSliderValue;
         }
@@ -210,17 +218,10 @@ public class GameHandler : MonoBehaviour
             currentSliderValue += 0.02f;
             slider.value = currentSliderValue;
         }
-        else if (currentSliderValue <= 0)
-        {
-            loseLife(this.ball);
-            isSliderChanging = false;
-            if (lifeCount > 0) slider.value = health = currentSliderValue = 1f;
-        }
         else isSliderChanging = false;
 
         if (Mathf.Abs(currentSliderValue - health) < 0.02f){
-            slider.value = currentSliderValue = health;
-            isSliderChanging = false;    
+            slider.value = currentSliderValue = health;   
         } 
     }
 

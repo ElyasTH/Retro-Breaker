@@ -8,7 +8,7 @@ public class cubeMovement : MonoBehaviour
     public int startlives = 0;
     public int score;
     public Transform tr;
-    private float speed = 0.3f;
+    private float speed = 1.5f;
     public Material FourLives;
     public Material ThreeLives;
     public Material TwoLives;
