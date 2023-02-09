@@ -70,7 +70,7 @@ public class GameHandler : MonoBehaviour
         if (!isGameStarted){
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)){
                 isGameStarted = true;
-                blockSpawner.GetComponent<blockSpawnScript>().startSpawner();
+                blockSpawner.GetComponent<BlockSpawner>().startSpawner();
                 guideText.gameObject.SetActive(false);
                 music.gameObject.SetActive(true);
             }

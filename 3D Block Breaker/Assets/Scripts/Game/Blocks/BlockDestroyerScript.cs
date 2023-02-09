@@ -25,7 +25,7 @@ public class BlockDestroyerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if (col.gameObject.tag == "Block" && gameHandler.lifeCount > 0){
-            col.gameObject.GetComponent<cubeMovement>().ChangeLife(true);
+            col.gameObject.GetComponent<BlockMovement>().ChangeLife(true);
         }
     }
 }

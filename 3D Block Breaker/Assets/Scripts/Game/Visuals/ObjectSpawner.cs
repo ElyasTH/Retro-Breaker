@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
     public float maxTimeBigTree = 1f;
     public float maxTimeGrass = 1f;

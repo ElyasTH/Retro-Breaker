@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cubeMovement : MonoBehaviour
+public class BlockMovement : MonoBehaviour
 {
     public int lives = 0;
     public int startlives = 0;

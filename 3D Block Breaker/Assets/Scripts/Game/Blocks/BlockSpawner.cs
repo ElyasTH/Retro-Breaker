@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockSpawnScript : MonoBehaviour
+public class BlockSpawner : MonoBehaviour
 {
     public float maxTime = 1f;
     [SerializeField]

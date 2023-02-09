@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-public class breakCollision : MonoBehaviour
+public class BallCollision : MonoBehaviour
 {
     public GameHandler gameHandler;
     public GameObject wallParticle;
@@ -16,7 +16,7 @@ public class breakCollision : MonoBehaviour
         Vector3 startingPos = transform.position;
         if (col.gameObject.tag == "Block")
         {
-            col.gameObject.GetComponent<cubeMovement>().ChangeLife(false);
+            col.gameObject.GetComponent<BlockMovement>().ChangeLife(false);
             Instantiate(dustParticle, gameObject.transform.position, Quaternion.identity);
             gameHandler.GetComponent<GameHandler>().blockCount -= 1;
         }

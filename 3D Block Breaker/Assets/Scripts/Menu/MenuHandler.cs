@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using LootLocker.Requests;
 
-public class menuHandler : MonoBehaviour
+public class MenuHandler : MonoBehaviour
 {
     public AudioSource ad;
     public AudioSource errorSound;

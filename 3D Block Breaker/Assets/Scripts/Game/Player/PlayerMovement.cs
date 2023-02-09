@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public int speed = 15;
     public Transform player;
