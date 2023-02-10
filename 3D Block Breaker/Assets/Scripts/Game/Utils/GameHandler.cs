@@ -302,10 +302,13 @@ public class GameHandler : MonoBehaviour
     //Buttons
     public void onRestart() 
     {
+        PlayerPrefs.SetInt("SceneReloadCount", PlayerPrefs.GetInt("SceneReloadCount") + 1);
         SceneManager.LoadScene(1);
     }
     public void onMenu()
     {
+        PlayerPrefs.SetInt("SceneReloadCount", 0);
+        Debug.Log("Scene reload count reset to 0");
         SceneManager.LoadScene(0);
     }
 
