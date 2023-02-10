@@ -48,8 +48,15 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI LifeText;
     public TextMeshProUGUI xpText;
-    public TextMeshProUGUI comboText;  
-    public TextMeshProUGUI guideText; 
+    public TextMeshProUGUI comboText;
+    public TextMeshProUGUI guideText;
+
+    [Header("Effects")]
+    [SerializeField] private int comboFire = 5;
+    [SerializeField] private ParticleSystem [] comboEffect;
+    [SerializeField] private AudioSource comboSound;
+
+    private bool fireIsOn = false;
 
     private void Start()
     {
@@ -67,6 +74,22 @@ public class GameHandler : MonoBehaviour
     }
 
     void Update(){
+        if (combo > comboFire && !fireIsOn)
+        {
+            for (int i = 0; i < comboEffect.Length; i++)
+                comboEffect[i].Play();
+            fireIsOn = true;
+            comboSound.Play();
+        }
+        else if (combo <= comboFire && fireIsOn) 
+        {
+            for (int i = 0; i < comboEffect.Length; i++)
+                comboEffect[i].Stop();
+            fireIsOn = false;
+            comboSound.Stop();
+        }
+
+
         if (!isGameStarted){
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)){
                 isGameStarted = true;
