@@ -7,6 +7,7 @@ TagManager:
   - Block
   - Wall
   - Ball
+  - Music
   layers:
   - Default
   - TransparentFX
