@@ -13,39 +13,39 @@ public class MenuHandler : MonoBehaviour
     public GameObject leaderBoardHolder;
     public TextMeshProUGUI level;
     public TextMeshProUGUI score;
-    public TextMeshProUGUI scoreLeaderBoard;
-    public TextMeshProUGUI playerName;
     public TextMeshProUGUI ErrorText;
     //LeaderBoard
     int stageLeaderBoardID = 4713;
     int counter = 0;
     bool loginIsDone = false;
-    bool submitIsDone = false;
     public TMP_InputField playerNameInput;
     LootLockerLeaderboardMember[] members;
 
-    private void Awake()
+    public LeaderBoard leaderBoard;
+
+    private void Start()
     {
         level.text = PlayerPrefs.GetInt("level").ToString();
         score.text = PlayerPrefs.GetInt("highScore").ToString();
-    }
-    private void Start()
-    {
         StartCoroutine(loginRoutine());
     }
 
+    [System.Obsolete]
     private void Update()
     {
         if (counter == 0 && loginIsDone)
         {
             if (PlayerPrefs.GetInt("highScore") != 0)
-                StartCoroutine(submitScoreRoutine());
+                StartCoroutine(leaderBoard.submitScoreRoutine());
             counter = 1;
         }
     }
 
+    [System.Obsolete]
     public void SetPlayerName()
     {
+        members = leaderBoard.getMembers();
+
         bool IsValid = true;
         for (int i = 0; i < members.Length; i++)
         {
@@ -79,7 +79,8 @@ public class MenuHandler : MonoBehaviour
                 if (responce.success)
                 {
                     Debug.Log("Set Name Success");
-                    StartCoroutine(fetchHighScores());
+                    leaderBoard.setPlayerStatus();
+                    StartCoroutine(leaderBoard.fetchHighScores());
                 }
                 else
                 {
@@ -124,81 +125,20 @@ public class MenuHandler : MonoBehaviour
                 PlayerPrefs.SetString("PlayerID", responce.player_id.ToString());
                 done = true;
                 loginIsDone = true;
+                leaderBoard.setPlayerStatus();
             }
         });
         yield return new WaitWhile(() => done = false);
     }
 
-    //leaderBoard
-
-    public IEnumerator submitScoreRoutine()
-    {
-        bool done = false;
-        string playerID = PlayerPrefs.GetString("PlayerID");
-        LootLockerSDKManager.SubmitScore(playerID, PlayerPrefs.GetInt("highScore"), stageLeaderBoardID, (responce) =>
-         {
-             if (responce.success)
-             {
-                 Debug.Log("Submit Score Success");
-                 done = true;
-                 submitIsDone = true;
-             }
-             else
-             {
-                 Debug.Log("Submit Error");
-                 done = true;
-             }
-         });
-        yield return new WaitWhile(() => done = false);
-    }
-
-    public IEnumerator fetchHighScores()
-    {
-        bool done = false;
-        LootLockerSDKManager.GetScoreList(stageLeaderBoardID, 7, 0, (responce) =>
-        {
-            if (responce.success)
-            {
-                string tempPlayerNames = "Names\n";
-                string tempPlayerScores = "Scores\n";
-
-                members = responce.items;
-
-                for (int i = 0; i < members.Length; i++)
-                {
-                    tempPlayerNames += members[i].rank + ". ";
-                    if (members[i].player.name != "")
-                    {
-                        tempPlayerNames += members[i].player.name;
-                    }
-                    else
-                    {
-                        tempPlayerNames += members[i].player.id;
-                    }
-
-                    tempPlayerScores += members[i].score + "\n";
-                    tempPlayerNames += "\n";
-                }
-                done = true;
-                playerName.text = tempPlayerNames;
-                scoreLeaderBoard.text = tempPlayerScores;
-            }
-            else
-            {
-                Debug.Log("Failed Fetching LeaderBoard");
-                done = true;
-            }
-        });
-        yield return new WaitWhile(() => done = false);
-    }
-
+    [System.Obsolete]
     public void openLeaderBoard()
     {
         ad.Play();
         leaderBoardHolder.SetActive(true);
-        if (counter == 1 && submitIsDone)
-        {
-            StartCoroutine(fetchHighScores());
+        if (counter == 1 && leaderBoard.getSubmitionStatus() && leaderBoard.getSettingStatus())
+        {          
+            StartCoroutine(leaderBoard.fetchHighScores());
             counter = 2;
         }
 

@@ -113,8 +113,8 @@ public class GameHandler : MonoBehaviour
         if (lifeCount == 0)
         {
             PlayerPrefs.SetInt("level", currentLevel);
-            if(PlayerPrefs.GetInt("highScore") < score)
-            PlayerPrefs.SetInt("highScore", score);
+            if (PlayerPrefs.GetInt("highScore") < score)
+                PlayerPrefs.SetInt("highScore", score);
 
             Time.timeScale = 0.2f;
             music.pitch = 0.6f;
@@ -310,6 +310,11 @@ public class GameHandler : MonoBehaviour
         PlayerPrefs.SetInt("SceneReloadCount", 0);
         Debug.Log("Scene reload count reset to 0");
         SceneManager.LoadScene(0);
+    }
+
+    public int getScore() 
+    {
+        return score;
     }
 
 }
