@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Ball
   - Music
+  - UICanvas
   layers:
   - Default
   - TransparentFX
