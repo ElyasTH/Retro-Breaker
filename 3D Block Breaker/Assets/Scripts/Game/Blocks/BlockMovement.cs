@@ -174,7 +174,8 @@ public class BlockMovement : MonoBehaviour
                     gameHandler.PlaySound(gameHandler.powerUp);
                 }
                 gameHandler.addCombo();
-                int xp =  startlives * diffculty;
+                int level = PlayerPrefs.GetInt("level");
+                int xp = startlives * level * 3;
                 while (xp % 5 != 0) xp++;
                 gameHandler.addXP(xp);
                 xpCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "+" + xp.ToString() + " XP";
