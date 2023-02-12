@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BlockMovement : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class BlockMovement : MonoBehaviour
     public GameObject healParticle;
     public GameObject ballIncreaseParticle;
     public GameObject lockParticle;
+    public Canvas xpCanvas;
+    public Transform uiCanvas;
     [SerializeField]
     private static float destroyerDelay = 150;
     private static bool isDestroying = false;
@@ -28,16 +31,17 @@ public class BlockMovement : MonoBehaviour
 
 
     public GameObject destroyParticle;
-    private GameObject gameHandler;
+    private GameHandler gameHandler;
 
 
     private int diffculty = 0;
 
     void Start()
     {
-        gameHandler = GameObject.Find("GameHandler");
-        gameHandler.GetComponent<GameHandler>().blockCount += 1;
-        diffculty = gameHandler.GetComponent<GameHandler>().getlevel() + 3;
+        gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
+        gameHandler.blockCount += 1;
+        uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").transform;
+        diffculty = gameHandler.getlevel() + 3;
         if (diffculty > 5)
             diffculty -= 2;
         if (diffculty/3 >= 1000)
@@ -78,8 +82,7 @@ public class BlockMovement : MonoBehaviour
         }
 
 
-        if (isLifeBlock || isBallIncrease || isFireBall || isLaunch
-)
+        if (isLifeBlock || isBallIncrease || isFireBall || isLaunch)
             lives = 1;
         else
         {
@@ -115,8 +118,7 @@ public class BlockMovement : MonoBehaviour
     {
         tr.position = new Vector3(tr.position.x , tr.position.y, tr.position.z - speed * Time.deltaTime);
 
-        if (isLifeBlock || isBallIncrease || isFireBall || isLaunch
-){}
+        if (isLifeBlock || isBallIncrease || isFireBall || isLaunch){}
             // Debug.Log(lives); 
         else
         switch (lives)
@@ -138,7 +140,7 @@ public class BlockMovement : MonoBehaviour
         if (transform.position.z < -9 && !isDestroying){
             isDestroying = true;
             BlockDestroyerScript.init();
-            gameHandler.GetComponent<GameHandler>().getDamaged();
+            gameHandler.getDamaged();
             ChangeLife(true);
         }
 
@@ -154,27 +156,32 @@ public class BlockMovement : MonoBehaviour
     public void ChangeLife(bool isDestroyer) 
     {
         if (!isDestroyer){
-            gameHandler.GetComponent<GameHandler>().addXP(Random.Range(1, 17) * startlives * diffculty / 5 * (PlayerPrefs.GetInt("level") + 1) * 10);
             lives--;
             if (lives <= 0){
-                gameHandler.GetComponent<GameHandler>().addScore(score);
+                gameHandler.addScore(score);
                 if (isLifeBlock){
-                    gameHandler.GetComponent<GameHandler>().addLife();
+                    gameHandler.addLife();
                 }
                 else if (isFireBall){
-                    gameHandler.GetComponent<GameHandler>().fireballPowerUp();
+                    gameHandler.fireballPowerUp();
                 }
                 else if (isBallIncrease){
                     Instantiate(GameObject.FindGameObjectWithTag("Ball"), transform.position, Quaternion.identity);
-                    gameHandler.GetComponent<GameHandler>().addBall();
+                    gameHandler.addBall();
                 }
                 else if (isLaunch){
                     BallMovement.lockAndLaunch = true;
-                    gameHandler.GetComponent<GameHandler>().PlaySound(gameHandler.GetComponent<GameHandler>().powerUp);
+                    gameHandler.PlaySound(gameHandler.powerUp);
                 }
-                gameHandler.GetComponent<GameHandler>().addCombo();
-                gameHandler.GetComponent<GameHandler>().addXP(Random.Range(23,57) * startlives * diffculty/5);
-                gameHandler.GetComponent<GameHandler>().StartCoroutine(gameHandler.GetComponent<GameHandler>().Shake(0.1f, 0.025f));
+                gameHandler.addCombo();
+                int xp =  startlives * diffculty;
+                while (xp % 5 != 0) xp++;
+                gameHandler.addXP(xp);
+                xpCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "+" + xp.ToString() + " XP";
+                xpCanvas.gameObject.transform.SetParent(null);
+                xpCanvas.gameObject.SetActive(true);
+                xpCanvas.GetComponentInChildren<Animator>().SetTrigger("Popup");
+                gameHandler.StartCoroutine(gameHandler.Shake(0.1f, 0.025f));
                 Instantiate(destroyParticle, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
@@ -185,3 +192,5 @@ public class BlockMovement : MonoBehaviour
         }
     }
 }
+
+

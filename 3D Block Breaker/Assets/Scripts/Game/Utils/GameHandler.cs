@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameHandler : MonoBehaviour
 {
@@ -41,29 +42,29 @@ public class GameHandler : MonoBehaviour
     private bool isSliderChanging;
     public float currentSliderValue = 1f;
     public Slider level;
-    public int xp = 40;
+    public int xp = 0;
     public int currentLevel = 1;
-    public int maxXP = 1000;
+    public int maxXP = 1;
     public int combo = 0;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI LifeText;
-    public TextMeshProUGUI xpText;
     public TextMeshProUGUI comboText;  
     public TextMeshProUGUI guideText; 
 
     private void Start()
     {
+        currentLevel = PlayerPrefs.GetInt("level");
         int i = 1;
-        if (PlayerPrefs.GetInt("level") > 1)
-            while (i < PlayerPrefs.GetInt("level"))
+        if (currentLevel > 1)
+            while (i < currentLevel)
             {
-                maxXP *= 3;
+                maxXP *= 2;
                 i++;
             }
 
-        currentLevel = PlayerPrefs.GetInt("level");
-        level.maxValue = maxXP;
-        levelText.text = PlayerPrefs.GetInt("level").ToString();
+        
+        level.maxValue = (float) Math.Ceiling((currentLevel * (currentLevel / 12) * Math.Log((currentLevel + 1) ^ 2)) * 300);
+        levelText.text = currentLevel.ToString();
     }
 
     void Update(){
@@ -130,9 +131,7 @@ public class GameHandler : MonoBehaviour
     {
         xp += addxp * (combo+1)/2;
         level.value = xp;
-
-             xpText.text = "+" +  xp.ToString();
-             StartCoroutine(ShakeAny(xpCanM,0.1f, 0.3f));
+        StartCoroutine(ShakeAny(xpCanM,0.1f, 0.3f));
         int n = Random.Range(1, 4);
         switch (n) 
         {
@@ -154,9 +153,9 @@ public class GameHandler : MonoBehaviour
             levelupText.SetActive(false);
             levelupText.SetActive(true);
             currentLevel++;
-            maxXP *=3;
+            maxXP *= 2;
             level.maxValue = maxXP;
-            level.value = 40;
+            level.value = 0;
             levelText.text = currentLevel.ToString();
             if (currentLevel % 2 == 0 || currentLevel == 1)
             {
@@ -164,7 +163,7 @@ public class GameHandler : MonoBehaviour
                 LifeText.text = lifeCount.ToString();
             }
             PlaySound(levelUp);
-            xp = 40;
+            xp = 0;
         }
     }
 
