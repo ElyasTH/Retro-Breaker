@@ -28,8 +28,7 @@ public class BlockMovement : MonoBehaviour
     [SerializeField]
     private static float destroyerDelay = 150;
     private static bool isDestroying = false;
-    bool isLifeBlock, isBallIncrease, isFireBall, isLaunch;
-
+    [SerializeField] bool isLifeBlock, isBallIncrease, isFireBall, isLaunch;
 
     public GameObject destroyParticle;
     private GameHandler gameHandler;

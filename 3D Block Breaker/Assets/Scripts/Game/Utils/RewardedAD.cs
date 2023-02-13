@@ -8,6 +8,7 @@ public class RewardedAD : MonoBehaviour
     private BallMovement ball;
     public GameObject gameOverCanvas;
     public GameHandler gameHandler;
+    public AudioSource music;
     private void Start()
     {
         MobileAds.Initialize(initialize => { });
@@ -91,7 +92,8 @@ public class RewardedAD : MonoBehaviour
         ball.reset();
         gameOverCanvas.SetActive(false);
         BlockDestroyerScript.init();
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
+        music.pitch = 1f;
     }
 
     public void SetBall(BallMovement ball){
