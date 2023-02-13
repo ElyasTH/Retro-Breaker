@@ -14366,6 +14366,8 @@ GameObject:
   - component: {fileID: 8259704}
   - component: {fileID: 10804334}
   - component: {fileID: 11424042}
+  - component: {fileID: -7299271494456334427}
+  - component: {fileID: -3667403891151132875}
   m_Layer: 0
   m_Name: NukeExplosionFire
   m_TagString: Untagged
@@ -19342,7 +19344,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0.4
-  killAfterLife: 1
+  killAfterLife: 0
+--- !u!114 &-7299271494456334427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &-3667403891151132875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f94eeb11a1853c4db2efe9cb031c816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &175850
 GameObject:
   m_ObjectHideFlags: 0
