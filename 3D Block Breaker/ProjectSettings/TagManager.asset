@@ -9,7 +9,6 @@ TagManager:
   - Ball
   - Music
   - UICanvas
-  - GameHandler
   layers:
   - Default
   - TransparentFX
