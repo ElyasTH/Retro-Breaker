@@ -4,10 +4,7 @@ using System;
 public class RewardedAD : MonoBehaviour
 {
     private RewardedAd rewardedAd;
-    public GameObject player;
-    private BallMovement ball;
-    public GameObject gameOverCanvas;
-    public GameHandler gameHandler;
+
     private void Start()
     {
         MobileAds.Initialize(initialize => { });
@@ -83,18 +80,6 @@ public class RewardedAD : MonoBehaviour
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        gameHandler.addLife();
-        gameHandler.addLife();
-        gameHandler.ball = this.ball.gameObject;
-        player.SetActive(true);
-        ball.gameObject.SetActive(true);
-        ball.reset();
-        gameOverCanvas.SetActive(false);
-        BlockDestroyerScript.init();
-        Time.timeScale = 1;
-    }
-
-    public void SetBall(BallMovement ball){
-        this.ball = ball;
+        Debug.Log("User WatchedAD");
     }
 }

@@ -8,7 +8,7 @@ public class GameHandler : MonoBehaviour
 {
     public int lifeCount = 3;
     public int blockCount = 0;
-    // [HideInInspector]
+    [HideInInspector]
     public int ballCount = 1;
     private int score = 0;
     public float health = 1f;
@@ -26,7 +26,6 @@ public class GameHandler : MonoBehaviour
     public GameObject comboCanvas;
     public GameObject GameOverCan;
     public GameObject blockSpawner;
-    public RewardedAD rewardedAD;
 
     [Header("Audio")]
     public AudioSource music;
@@ -42,12 +41,13 @@ public class GameHandler : MonoBehaviour
     private bool isSliderChanging;
     public float currentSliderValue = 1f;
     public Slider level;
-    public int xp = 0;
+    public int xp = 40;
     public int currentLevel = 1;
     public int maxXP = 1000;
     public int combo = 0;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI LifeText;
+    public TextMeshProUGUI xpText;
     public TextMeshProUGUI comboText;
     public TextMeshProUGUI guideText;
 
@@ -60,11 +60,17 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
+        int i = 1;
+        if (PlayerPrefs.GetInt("level") > 1)
+            while (i < PlayerPrefs.GetInt("level"))
+            {
+                maxXP *= 3;
+                i++;
+            }
+
         currentLevel = PlayerPrefs.GetInt("level");
-        float currentLevelF = (float) currentLevel;
-        level.maxValue = Mathf.Ceil((currentLevelF * (currentLevelF / 12f) * Mathf.Log((currentLevelF + 1f)*(currentLevelF + 1f))) * 300f);
-        levelText.text = currentLevel.ToString();
-        print(level.maxValue);
+        level.maxValue = maxXP;
+        levelText.text = PlayerPrefs.GetInt("level").ToString();
     }
 
     void Update(){
@@ -113,11 +119,10 @@ public class GameHandler : MonoBehaviour
             Time.timeScale = 0.2f;
             music.pitch = 0.6f;
             player.SetActive(false);
-            rewardedAD.SetBall(ball.GetComponent<BallMovement>());
-            ball.SetActive(false);
+            Destroy(ball.gameObject);
             GameOverCan.SetActive(true);
             GameOverCan.transform.position = new Vector3(cam.transform.position.x, GameOverCan.transform.position.y, GameOverCan.transform.position.z);
-            // this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
+            this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
         }
         else
         {
@@ -146,8 +151,11 @@ public class GameHandler : MonoBehaviour
 
     public void addXP(int addxp) 
     {
-        level.value += addxp;
-        StartCoroutine(ShakeAny(xpCanM,0.1f, 0.3f));
+        xp += addxp * (combo+1)/2;
+        level.value = xp;
+
+             xpText.text = "+" +  xp.ToString();
+             StartCoroutine(ShakeAny(xpCanM,0.1f, 0.3f));
         int n = Random.Range(1, 4);
         switch (n) 
         {
@@ -163,15 +171,15 @@ public class GameHandler : MonoBehaviour
         }
 
 
-        if (level.value >= level.maxValue)
+        if (level.value >= maxXP)
         {
             StartCoroutine(Shake(2f, 0.05f));
             levelupText.SetActive(false);
             levelupText.SetActive(true);
             currentLevel++;
-            float currentLevelF = (float) currentLevel;
-            level.maxValue = Mathf.Ceil((currentLevelF * (currentLevelF / 12f) * Mathf.Log((currentLevelF + 1f)*(currentLevelF + 1f))) * 300f);
-            level.value = 0;
+            maxXP *=3;
+            level.maxValue = maxXP;
+            level.value = 40;
             levelText.text = currentLevel.ToString();
             if (currentLevel % 2 == 0 || currentLevel == 1)
             {
@@ -179,7 +187,7 @@ public class GameHandler : MonoBehaviour
                 LifeText.text = lifeCount.ToString();
             }
             PlaySound(levelUp);
-            xp = 0;
+            xp = 40;
         }
     }
 
