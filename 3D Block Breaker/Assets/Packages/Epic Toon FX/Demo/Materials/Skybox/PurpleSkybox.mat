@@ -94,7 +94,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+<<<<<<< HEAD
     - _Rotation: 160.0874
+=======
+    - _Rotation: 1852.9073
+>>>>>>> parent of c4ad3e9 (added launch button/balanced game speed)
     - _SrcBlend: 1
     - _SunDisk: 0
     - _SunSize: 0.148
