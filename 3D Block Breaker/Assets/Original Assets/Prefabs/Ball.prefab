@@ -134,7 +134,7 @@ MonoBehaviour:
   locked: 1
   lockPosition: {fileID: 0}
   rb: {fileID: 1464183328303456521}
-  startForce: 200
+  startForce: 350
   player: {fileID: 0}
   powerUpLight: {fileID: 0}
   gameHandler: {fileID: 0}
@@ -154,6 +154,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  minSpeed: 40
+  maxSpeed: 45
 --- !u!114 &1464183328303456523
 MonoBehaviour:
   m_ObjectHideFlags: 0

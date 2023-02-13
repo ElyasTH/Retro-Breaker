@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf74a903faefe9498c18a5396b57aeb, type: 3}
+  m_Name: PostProcessingSettings1
+  m_EditorClassIdentifier: 
+  VignetteEnabled: 1
+  VignettePower: 0.5
+  VignetteCenter: {x: 0, y: 0}
+  BlurEnabled: 0
+  BlurRadius: 0.00111
+  BlurTextureResolutionDivider: 8
+  BlurIterations: 6
+  ColorGradingEnabled: 1
+  ToneMappingEnabled: 0
+  Gamma: 0.71
+  Exposure: 2.58
+  LUTEnabled: 0
+  LUT: {fileID: 2800000, guid: c3ca844d4235dc244891a9f23b11405d, type: 3}
+  LUTIntensity: 0.327
+  ColorsAmount: 32
+  ChromaticAbberationEnabled: 0
+  ColorsShiftAmount: 0.0081
+  FishEyeEffectFactor: 1
+  FishEyeEffectStart: 0.3
+  FishEyeEffectEnd: 1
+  BloomEnabled: 1
+  BloomBlurRadius: 0.00146
+  BloomBlurTextureResolutionDivider: 10
+  BloomBlurIterations: 10
+  FilterTextureResolutionDivider: 1
+  BloomIntensity: 1.82
+  BloomThreshold: 1.16
+  BloomSoftThreshold: 0.18
+  BloomDebugView: 0
