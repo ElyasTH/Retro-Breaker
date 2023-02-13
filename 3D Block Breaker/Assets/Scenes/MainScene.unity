@@ -69444,6 +69444,7 @@ MonoBehaviour:
   player: {fileID: 865668777}
   gameOverCanvas: {fileID: 141633595}
   gameHandler: {fileID: 451177035}
+  music: {fileID: 195876064}
 --- !u!4 &1712390259
 Transform:
   m_ObjectHideFlags: 0
