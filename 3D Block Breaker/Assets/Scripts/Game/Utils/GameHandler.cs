@@ -8,7 +8,7 @@ public class GameHandler : MonoBehaviour
 {
     public int lifeCount = 3;
     public int blockCount = 0;
-    [HideInInspector]
+    // [HideInInspector]
     public int ballCount = 1;
     private int score = 0;
     public float health = 1f;
@@ -26,6 +26,7 @@ public class GameHandler : MonoBehaviour
     public GameObject comboCanvas;
     public GameObject GameOverCan;
     public GameObject blockSpawner;
+    public RewardedAD rewardedAD;
 
     [Header("Audio")]
     public AudioSource music;
@@ -112,10 +113,11 @@ public class GameHandler : MonoBehaviour
             Time.timeScale = 0.2f;
             music.pitch = 0.6f;
             player.SetActive(false);
-            Destroy(ball.gameObject);
+            rewardedAD.SetBall(ball.GetComponent<BallMovement>());
+            ball.SetActive(false);
             GameOverCan.SetActive(true);
             GameOverCan.transform.position = new Vector3(cam.transform.position.x, GameOverCan.transform.position.y, GameOverCan.transform.position.z);
-            this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
+            // this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
         }
         else
         {

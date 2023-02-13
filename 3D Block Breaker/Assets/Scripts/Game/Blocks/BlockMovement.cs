@@ -9,7 +9,7 @@ public class BlockMovement : MonoBehaviour
     public int startlives = 0;
     public int score;
     public Transform tr;
-    private float speed = 0.3f;
+    public float speed = 0.3f;
     public Material FourLives;
     public Material ThreeLives;
     public Material TwoLives;
@@ -23,6 +23,7 @@ public class BlockMovement : MonoBehaviour
     public GameObject ballIncreaseParticle;
     public GameObject lockParticle;
     public Canvas xpCanvas;
+    
     public Transform uiCanvas;
     [SerializeField]
     private static float destroyerDelay = 150;
@@ -32,13 +33,11 @@ public class BlockMovement : MonoBehaviour
 
     public GameObject destroyParticle;
     private GameHandler gameHandler;
-
-
     private int diffculty = 0;
 
     void Start()
     {
-        gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
+        gameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         gameHandler.blockCount += 1;
         uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").transform;
         diffculty = gameHandler.getlevel() + 3;

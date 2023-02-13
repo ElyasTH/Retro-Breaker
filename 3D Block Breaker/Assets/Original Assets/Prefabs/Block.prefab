@@ -116,6 +116,7 @@ MonoBehaviour:
   startlives: 0
   score: 0
   tr: {fileID: 5288516125695930049}
+  speed: 0.3
   FourLives: {fileID: 2100000, guid: fb66505c63c0a564eb06ffab2ba62d2f, type: 2}
   ThreeLives: {fileID: 2100000, guid: 51fb21d8e4487904b8d453dde818aa16, type: 2}
   TwoLives: {fileID: 2100000, guid: 4774a83d2bb1d544db84fa7f088fda30, type: 2}
