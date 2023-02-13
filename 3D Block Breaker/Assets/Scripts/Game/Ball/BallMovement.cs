@@ -17,6 +17,7 @@ public class BallMovement : MonoBehaviour
     public static bool lockAndLaunch = false;
     private float lockAndLaunchTime = 5;
     public UnityEvent onCollisionEvent;
+    public float minSpeed, maxSpeed;
 
     void Start(){
         rb.AddForce(0,0,startForce);
@@ -26,8 +27,8 @@ public class BallMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!locked){
-            if (rb.velocity.magnitude < 15) rb.AddForce(rb.velocity.normalized * Time.deltaTime * 100);
-            if (rb.velocity.magnitude > 20) rb.AddForce(rb.velocity.normalized * Time.deltaTime * -100);
+            if (rb.velocity.magnitude < minSpeed) rb.AddForce(rb.velocity.normalized * Time.deltaTime * 100);
+            if (rb.velocity.magnitude > maxSpeed) rb.AddForce(rb.velocity.normalized * Time.deltaTime * -100);
 
             if (Mathf.Abs(gameObject.transform.position.z-lastZ) < 0.1){
                 checkZDelay -= Time.deltaTime;
@@ -36,7 +37,7 @@ public class BallMovement : MonoBehaviour
                 checkZDelay = 3f;
             }
             if (checkZDelay <= 0){
-                rb.AddForce(0,0,-30);
+                rb.AddForce(0,0,-10);
                 checkZDelay = 3f;
             }
             lastZ = transform.position.z;
@@ -57,12 +58,6 @@ public class BallMovement : MonoBehaviour
             gameObject.transform.position = lockPosition.position;
         }
 
-        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && locked){
-            locked = false;
-            rb.velocity = new Vector3(0,0,0);
-            rb.AddForce(0, 0, startForce);
-        }
-
         if (lockAndLaunch){
             lockAndLaunchTime -= Time.deltaTime;
             powerUpLight.SetActive(true);
@@ -77,10 +72,23 @@ public class BallMovement : MonoBehaviour
     public void reset(){
         transform.position = new Vector3(0, 0.9f,  -5.22f);
         locked = true;
+        player.GetComponent<PlayerMovement>().locked_balls.Add(this);
     }
 
     void OnCollisionEnter(Collision col){
-        if (col.gameObject.tag == "Player" && lockAndLaunch) this.locked = true;
+        if (col.gameObject.tag == "Player" && lockAndLaunch){
+            this.locked = true;
+            player.GetComponent<PlayerMovement>().locked_balls.Add(this);
+        } 
         onCollisionEvent?.Invoke();
+    }
+
+    public void Launch(){
+        if (locked){
+            locked = false;
+            rb.velocity = new Vector3(0,0,0);
+            rb.AddForce(0, 0, startForce);
+            player.GetComponent<PlayerMovement>().locked_balls.Remove(this);
+        }
     }
 }
