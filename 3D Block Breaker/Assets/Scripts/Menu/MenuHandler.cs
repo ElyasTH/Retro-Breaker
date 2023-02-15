@@ -21,10 +21,23 @@ public class MenuHandler : MonoBehaviour
     public TMP_InputField playerNameInput;
     LootLockerLeaderboardMember[] members;
 
+    [Header("Music Selector")]
+    public TextMeshProUGUI musicName;
+    public AudioClip[] clips;
+    public AudioClip menuMusic;
+    public AudioSource menuSource;
+    public float samplePlayTime = 5;
+    int musicIDX = 0;
+    string exclude = "(UnityEngine.AudioClip)";
+
     public LeaderBoard leaderBoard;
 
     private void Start()
     {
+        musicIDX = PlayerPrefs.GetInt("MusicIDX");
+        string result = clips[musicIDX].ToString().Replace(exclude, "");
+        musicName.text = result;
+
         level.text = PlayerPrefs.GetInt("level").ToString();
         score.text = PlayerPrefs.GetInt("highScore").ToString();
         StartCoroutine(loginRoutine());
@@ -151,5 +164,51 @@ public class MenuHandler : MonoBehaviour
 
     public void exitGame(){
         Application.Quit();
+    }
+
+    public void NextMusic() 
+    {
+        ad.Play();
+        musicIDX++;
+        if (musicIDX == clips.Length)
+        {
+            musicIDX = clips.Length - 1;
+            errorSound.Play();
+        }
+        string result = clips[musicIDX].ToString().Replace(exclude, "");
+        musicName.text = result;
+        PlayerPrefs.SetInt("MusicIDX", musicIDX);
+        StopAllCoroutines();
+        StartCoroutine(PlaySample(samplePlayTime));
+    }
+
+    public void PrevMusic() 
+    {
+        ad.Play();
+        musicIDX--;
+        if (musicIDX < 0) 
+        {
+            musicIDX = 0;
+            errorSound.Play();
+        }
+        string result = clips[musicIDX].ToString().Replace(exclude, "");
+        musicName.text = result;
+        PlayerPrefs.SetInt("MusicIDX", musicIDX);
+        StopAllCoroutines();
+        StartCoroutine(PlaySample(samplePlayTime));
+    }
+
+    IEnumerator PlaySample(float delay) 
+    {
+        float time = menuSource.time;
+        menuSource.time = 2f;
+        menuSource.Stop();
+        menuSource.clip = clips[musicIDX];
+        menuSource.Play();
+        yield return new WaitForSecondsRealtime(delay);
+        menuSource.Stop();
+        menuSource.clip = menuMusic;
+        menuSource.time = time;
+        menuSource.Play();
     }
 }

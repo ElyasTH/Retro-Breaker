@@ -21486,6 +21486,11 @@ MonoBehaviour:
   GameOverCan: {fileID: 141633595}
   blockSpawner: {fileID: 905010900}
   rewardedAD: {fileID: 1712390258}
+  musics:
+  - {fileID: 8300000, guid: e5c75ce26b5bc5e47997d03ce365c32b, type: 3}
+  - {fileID: 8300000, guid: 9bbf7de9eb8e7c046ab2361a66ae57d6, type: 3}
+  - {fileID: 8300000, guid: 89f8f926cff8b0c489b7eec6152f95f2, type: 3}
+  - {fileID: 8300000, guid: 8312cfdba6c8c894e9ac3fff155903f3, type: 3}
   music: {fileID: 195876064}
   scoreText: {fileID: 1276869164}
   powerUp: {fileID: 1497494127}

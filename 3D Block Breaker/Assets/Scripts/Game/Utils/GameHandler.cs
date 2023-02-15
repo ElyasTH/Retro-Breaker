@@ -29,6 +29,7 @@ public class GameHandler : MonoBehaviour
     public RewardedAD rewardedAD;
 
     [Header("Audio")]
+    public AudioClip[] musics;
     public AudioSource music;
     public TextMeshProUGUI scoreText;
     public AudioSource powerUp;
@@ -60,6 +61,7 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
+        music.clip = musics[PlayerPrefs.GetInt("MusicIDX")];
         currentLevel = PlayerPrefs.GetInt("level");
         float currentLevelF = (float) currentLevel;
         level.maxValue = Mathf.Ceil((currentLevelF * (currentLevelF / 12f) * Mathf.Log((currentLevelF + 1f)*(currentLevelF + 1f))) * 300f);
