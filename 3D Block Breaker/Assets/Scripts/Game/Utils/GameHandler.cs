@@ -65,11 +65,13 @@ public class GameHandler : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt("level");
         float currentLevelF = (float) currentLevel;
         level.maxValue = Mathf.Ceil((currentLevelF * (currentLevelF / 12f) * Mathf.Log((currentLevelF + 1f)*(currentLevelF + 1f))) * 300f);
+        level.value = PlayerPrefs.GetFloat("xp");
         levelText.text = currentLevel.ToString();
         print(level.maxValue);
     }
 
     void Update(){
+
         if (combo > comboFire && !fireIsOn)
         {
             for (int i = 0; i < comboEffect.Length; i++)
@@ -163,8 +165,6 @@ public class GameHandler : MonoBehaviour
                 PlaySound(coin3);
                 break;
         }
-
-
         if (level.value >= level.maxValue)
         {
             StartCoroutine(Shake(2f, 0.05f));
@@ -183,6 +183,7 @@ public class GameHandler : MonoBehaviour
             PlaySound(levelUp);
             xp = 0;
         }
+        PlayerPrefs.SetFloat("xp", level.value);
     }
 
     public void fireballPowerUp(){
