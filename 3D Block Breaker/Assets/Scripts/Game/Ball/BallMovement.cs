@@ -76,8 +76,8 @@ public class BallMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
-        if (col.gameObject.tag == "Player" && lockAndLaunch){
-            this.locked = true;
+        if (col.gameObject.tag == "Player" && lockAndLaunch && !locked){
+            locked = true;
             player.GetComponent<PlayerMovement>().locked_balls.Add(this);
         } 
         onCollisionEvent?.Invoke();

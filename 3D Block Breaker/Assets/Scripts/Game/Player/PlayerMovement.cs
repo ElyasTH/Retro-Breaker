@@ -46,13 +46,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void LaunchBalls(){
-        foreach (var ball in locked_balls){
-            if (ball == null) locked_balls.Remove(ball);
-        }
         if (locked_balls.Count > 0){
             var lockedBall = locked_balls[0];
             lockedBall.Launch();
-            while(locked_balls.Contains(lockedBall)) locked_balls.Remove(lockedBall);
+            locked_balls.Remove(lockedBall);
         }
     }
 }
