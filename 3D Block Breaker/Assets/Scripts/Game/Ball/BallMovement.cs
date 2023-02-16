@@ -52,6 +52,7 @@ public class BallMovement : MonoBehaviour
                     gameHandler.ballCount--;
                     Destroy(this.gameObject);
                 }
+                gameHandler.resetCombo();
             } 
         }
         else{
@@ -79,6 +80,7 @@ public class BallMovement : MonoBehaviour
         if (col.gameObject.tag == "Player" && lockAndLaunch && !locked){
             locked = true;
             player.GetComponent<PlayerMovement>().locked_balls.Add(this);
+            gameHandler.resetCombo();
         } 
         onCollisionEvent?.Invoke();
     }

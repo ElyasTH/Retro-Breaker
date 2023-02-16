@@ -86,14 +86,15 @@ public class BlockMovement : MonoBehaviour
         {
             lives = Random.Range(1, 1000);
             if (lives < 30 + diffculty && lives > 0)
-                lives = score = 4;
+                lives = 4;
             else if (lives >= 30 + diffculty && lives < 100 + diffculty / 2 + diffculty)
-                lives = score = 3;
+                lives = 3;
             else if (lives >= 100 + +diffculty + diffculty /2 && lives < 350 + diffculty + diffculty /2 + diffculty / 3)
-                lives = score = 2;
+                lives = 2;
             else if (lives >= 350 + diffculty / 3 + diffculty /2 + diffculty && lives <= 1000)
-                lives = score = 1;
-
+                lives = 1;
+            score = lives * gameHandler.currentLevel / 2;
+            
             switch (lives)
             {
                 case 1:
