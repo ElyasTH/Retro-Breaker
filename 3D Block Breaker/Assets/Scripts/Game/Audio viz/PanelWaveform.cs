@@ -149,6 +149,14 @@ namespace AudioVisualizer
 		{
 			float[] audioSamples;
 
+			if (AudioSampler.instance == null){
+				foreach (var cell in cells)
+				{
+					cell.SetActive(false);
+				}
+				return;
+			}
+
             if (frequencyRange == FrequencyRange.Decibal)
             {
                 audioSamples = AudioSampler.instance.GetAudioSamples(audioIndex, numColumns, true,useAudioFile);

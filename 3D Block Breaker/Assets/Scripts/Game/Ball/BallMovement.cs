@@ -7,7 +7,7 @@ public class BallMovement : MonoBehaviour
     public bool locked = true;
     public Transform lockPosition;
     public Rigidbody rb;
-    public int startForce = 200;
+    public int startForce = 150;
     public GameObject player;
     public GameObject powerUpLight;
     public GameHandler gameHandler;
