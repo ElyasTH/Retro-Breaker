@@ -45,8 +45,8 @@ public class BlockMovement : MonoBehaviour
         if (diffculty/3 >= 1000)
             diffculty = 1000;
 
-        int Special = Random.Range(1, 90);
-        if (Special > 3 && Special < 9)
+        int Special = Random.Range(1, 200);
+        if (Special > 3 && Special < 8)
         {
             isFireBall = true;
             GetComponent<Renderer>().material = fireBall;
@@ -54,7 +54,7 @@ public class BlockMovement : MonoBehaviour
             fire.transform.rotation = new Quaternion(-90,0,0,90);
             fire.transform.parent = transform;
         }
-        else if (Special > 10 && Special < 14)
+        else if (Special > 7 && Special < 13)
         {
             isLaunch = true;
             GetComponent<Renderer>().material = lockAndLaunch;
@@ -70,7 +70,7 @@ public class BlockMovement : MonoBehaviour
             heal.transform.rotation = new Quaternion(-90,0,0,90);
             heal.transform.parent = transform;
         }
-        else if (Special > 15 && Special < 20)
+        else if (Special > 12 && Special < 16)
         {
             isBallIncrease = true;
             GetComponent<Renderer>().material = ballInc;
