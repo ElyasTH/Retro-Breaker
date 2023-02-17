@@ -45,7 +45,7 @@ public class BlockMovement : MonoBehaviour
         if (diffculty/3 >= 1000)
             diffculty = 1000;
 
-        int Special = Random.Range(1, 200);
+        int Special = Random.Range(1, 150);
         if (Special > 3 && Special < 8)
         {
             isFireBall = true;
