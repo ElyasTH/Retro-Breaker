@@ -90,7 +90,6 @@ public class BallMovement : MonoBehaviour
             locked = false;
             rb.velocity = new Vector3(0,0,0);
             rb.AddForce(0, 0, startForce);
-            player.GetComponent<PlayerMovement>().locked_balls.Remove(this);
         }
     }
 }
