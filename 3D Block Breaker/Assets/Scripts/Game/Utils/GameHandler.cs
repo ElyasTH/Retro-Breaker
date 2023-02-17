@@ -51,6 +51,8 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI LifeText;
     public TextMeshProUGUI comboText;
     public TextMeshProUGUI guideText;
+    [SerializeField] Image pauseButton;
+    [SerializeField] Sprite pause, play;
 
     [Header("Effects")]
     [SerializeField] private int comboFire = 5;
@@ -58,6 +60,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private AudioSource comboSound;
 
     private bool fireIsOn = false;
+    private bool gameOnHold = false;
+    private float musicTime = 0;
 
     private void Start()
     {
@@ -182,6 +186,7 @@ public class GameHandler : MonoBehaviour
             }
             PlaySound(levelUp);
             xp = 0;
+            PlayerPrefs.SetInt("level", currentLevel);
         }
         PlayerPrefs.SetFloat("xp", level.value);
     }
@@ -312,4 +317,25 @@ public class GameHandler : MonoBehaviour
         return score;
     }
 
+    public void PauseAndUnpause() 
+    {
+        if (gameOnHold)
+        {
+            gameOnHold = false;
+
+            Time.timeScale = 1;
+            music.time = musicTime;
+            music.Play();
+            pauseButton.sprite = pause;
+        }
+        else 
+        {
+            gameOnHold = true;
+           
+            Time.timeScale = 0;
+            musicTime = music.time;
+            music.Stop();
+            pauseButton.sprite = play;
+        }
+    }
 }

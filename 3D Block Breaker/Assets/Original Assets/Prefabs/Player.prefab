@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4230440458793130573}
   - component: {fileID: 4230440458793130572}
+  - component: {fileID: 5779281999359781684}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -147,3 +148,23 @@ MonoBehaviour:
   player: {fileID: 4230440458793130573}
   max_acceleration: 0.7
   current_acceleration: 0
+  firstBall: {fileID: 0}
+  launchButton: {fileID: 0}
+  locked_balls: []
+--- !u!114 &5779281999359781684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230440458793130575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba53c104fd6c5042a9e1a158e61d47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 13
+  minX: -6.7
+  maxX: 5.4
+  minY: 0
+  maxY: 0

@@ -34,6 +34,12 @@ public class MenuHandler : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt("highScore") == 0) 
+        {
+            PlayerPrefs.SetInt("highScore", 1);
+            PlayerPrefs.SetInt("level", 1);
+        }
+
         musicIDX = PlayerPrefs.GetInt("MusicIDX");
         string result = clips[musicIDX].ToString().Replace(exclude, "");
         musicName.text = result;
@@ -41,6 +47,7 @@ public class MenuHandler : MonoBehaviour
         level.text = PlayerPrefs.GetInt("level").ToString();
         score.text = PlayerPrefs.GetInt("highScore").ToString();
         StartCoroutine(loginRoutine());
+
     }
 
     [System.Obsolete]
@@ -48,7 +55,6 @@ public class MenuHandler : MonoBehaviour
     {
         if (counter == 0 && loginIsDone)
         {
-            if (PlayerPrefs.GetInt("highScore") != 0)
                 StartCoroutine(leaderBoard.submitScoreRoutine());
             counter = 1;
         }

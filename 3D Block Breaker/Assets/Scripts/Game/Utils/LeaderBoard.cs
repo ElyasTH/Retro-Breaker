@@ -21,9 +21,10 @@ public class LeaderBoard : MonoBehaviour
     [Header("Text Fields")]
     public TextMeshProUGUI playerName;
     public TextMeshProUGUI scoreLeaderBoard;
+    public TextMeshProUGUI player_ID_Text;
 
     string player_Name, player_ID, player_Score;
-    int player_Rank, startingScore;
+    int player_Rank, startingScore, state = 0;
 
     private void Awake()
     {
@@ -58,6 +59,12 @@ public class LeaderBoard : MonoBehaviour
             }
             else
                 timer += Time.time;
+        }
+        else if (LootLockerSDKManager.CheckInitialized() && state == 0) 
+        {
+            setPlayerStatus();
+            player_ID_Text.text = "ID: " + player_ID.ToString();
+            state = 1;
         }
         
     }
