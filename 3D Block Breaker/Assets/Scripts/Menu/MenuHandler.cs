@@ -30,7 +30,13 @@ public class MenuHandler : MonoBehaviour
     int musicIDX = 0;
     string exclude = "(UnityEngine.AudioClip)";
 
+    [Header("Name Filter")]
+    public List<string> filterStringList;
+
     public LeaderBoard leaderBoard;
+
+    [Header("BannerAD")]
+    [SerializeField] private BannerAD banner;
 
     private void Start()
     {
@@ -87,6 +93,15 @@ public class MenuHandler : MonoBehaviour
             IsValid = false;
             ErrorText.text = "Name Is Too Long";
         }
+        foreach (string filterString in filterStringList)
+        {
+            if (playerNameInput.text.Contains(filterString))
+            {
+                IsValid = false;
+                ErrorText.text = ("Restricted word: " + filterString);
+                break;
+            }
+        }
 
 
         if (IsValid)
@@ -114,6 +129,7 @@ public class MenuHandler : MonoBehaviour
     }
     public void onPlay()
     {
+        banner.ClearBanner();
         SceneManager.LoadScene(1);
         ad.Play();
     }

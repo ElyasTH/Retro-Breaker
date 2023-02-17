@@ -14,6 +14,7 @@ public class RewardedAD : MonoBehaviour
         MobileAds.Initialize(initialize => { });
     }
 
+    [Obsolete]
     public void ShowRewardedAD() 
     {
         RequestRewardedVideo();
@@ -21,11 +22,12 @@ public class RewardedAD : MonoBehaviour
             rewardedAd.Show();
     }
 
+    [Obsolete]
     public void RequestRewardedVideo()
     {
         string adUnitId;
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-9942015316512700/8055161368";
+        adUnitId = "ca-app-pub-9942015316512700/7591641834";
 #elif UNITY_IPHONE
             adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else

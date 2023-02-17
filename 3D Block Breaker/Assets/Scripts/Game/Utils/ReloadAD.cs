@@ -9,6 +9,7 @@ public class ReloadAD : MonoBehaviour
     private const string PREF_KEY = "SceneReloadCount";
     private int reloadCount = 0;
 
+    [System.Obsolete]
     private void Start()
     {
         reloadCount = PlayerPrefs.GetInt(PREF_KEY);
@@ -26,10 +27,12 @@ public class ReloadAD : MonoBehaviour
                 interstitial.Show();
         }
     }
+
+    [System.Obsolete]
     private void RequestInterstitial()
     {
     #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-9942015316512700/3721164684";
+        string adUnitId = "ca-app-pub-9942015316512700/5936328123";
     #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-3940256099942544/4411468910";
     #else

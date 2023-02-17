@@ -338,4 +338,14 @@ public class GameHandler : MonoBehaviour
             pauseButton.sprite = play;
         }
     }
+
+    public void LoadMenu() 
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Reload() 
+    {
+        SceneManager.LoadScene(1);
+    }
 }

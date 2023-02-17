@@ -1186,7 +1186,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1377.19, y: -226}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 236.51, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &316295672
 GameObject:
@@ -2172,7 +2172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &840527331
 Transform:
   m_ObjectHideFlags: 0
@@ -7963,7 +7963,21 @@ MonoBehaviour:
   menuMusic: {fileID: 8300000, guid: 0e43e074a42c1384188094f6758605fb, type: 3}
   menuSource: {fileID: 597500556}
   samplePlayTime: 10
+  filterStringList:
+  - fuck
+  - shit
+  - cunt
+  - nigger
+  - asshole
+  - 'ass hole '
+  - pussy
+  - nigga
+  - cuck
+  - porn
+  - whore
+  - bitch
   leaderBoard: {fileID: 901262086}
+  banner: {fileID: 840527332}
 --- !u!4 &1295856892
 Transform:
   m_ObjectHideFlags: 0

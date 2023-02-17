@@ -60,11 +60,17 @@ public class LeaderBoard : MonoBehaviour
             else
                 timer += Time.time;
         }
-        else if (LootLockerSDKManager.CheckInitialized() && state == 0) 
+        else if (LootLockerSDKManager.CheckInitialized() && state == 0)
         {
-            setPlayerStatus();
-            player_ID_Text.text = "ID: " + player_ID.ToString();
-            state = 1;
+            player_ID_Text.text = "Status: " + "online";
+            Color alpha = player_ID_Text.color;
+            alpha.a = 220;
+            player_ID_Text.color = alpha;
+           state = 1;
+        }
+        else if (state == 0 && !LootLockerSDKManager.CheckInitialized()) 
+        {
+            player_ID_Text.text = "Status: " + "offline";
         }
         
     }
