@@ -27,7 +27,7 @@ public class RewardedAD : MonoBehaviour
     {
         string adUnitId;
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-9942015316512700/7591641834";
+        adUnitId = "ca-app-pub-9942015316512700/8760450944";
 #elif UNITY_IPHONE
             adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -74,9 +74,6 @@ public class RewardedAD : MonoBehaviour
 
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
     {
-        MonoBehaviour.print(
-            "HandleRewardedAdFailedToShow event received with message: "
-                             + args.Message);
     }
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)

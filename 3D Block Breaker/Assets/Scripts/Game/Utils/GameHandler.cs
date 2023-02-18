@@ -346,6 +346,7 @@ public class GameHandler : MonoBehaviour
 
     public void Reload() 
     {
+        PlayerPrefs.SetInt("SceneReloadCount", PlayerPrefs.GetInt("SceneReloadCount") + 1);
         SceneManager.LoadScene(1);
     }
 }
