@@ -77,9 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
-        print("Collided");
         if (col.gameObject.tag == "Ball" && lockAndLaunch && !col.gameObject.GetComponent<BallMovement>().locked){
-            print("Locked?");
             col.gameObject.GetComponent<BallMovement>().Lock();
         }
     }

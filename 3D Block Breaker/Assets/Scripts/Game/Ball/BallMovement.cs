@@ -6,25 +6,37 @@ public class BallMovement : MonoBehaviour
 
     public bool locked = true;
     public Rigidbody rb;
-    public int startForce = 150;
+    public float startSpeed = 12;
     public Transform player;
     public GameHandler gameHandler;
     private float lastZ = 0;
     public float checkZDelay = 3f;
     public UnityEvent onCollisionEvent;
-    public float minSpeed, maxSpeed;
+    [SerializeField] private float speed = 15;
+    public float speedUpZ = -3.8f;
+    public float speedUpMultiplier = 2f;
+    private bool highZ = false;
 
     void Start(){
-        rb.AddForce(0,0,startForce);
-        transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+        rb.velocity = startSpeed * new Vector3(0,0,1);
+        speed = startSpeed;
         if (locked) Lock();
     }
 
     private void FixedUpdate()
     {
         if (!locked){
-            if (rb.velocity.magnitude < minSpeed) rb.AddForce(rb.velocity.normalized * Time.deltaTime * 100);
-            if (rb.velocity.magnitude > maxSpeed) rb.AddForce(rb.velocity.normalized * Time.deltaTime * -100);
+
+            if (transform.position.z > speedUpZ && !highZ){
+                highZ = true;
+                speed *= speedUpMultiplier;
+            }
+            else if (transform.position.z < speedUpZ && highZ){
+                highZ = false;
+                speed /= speedUpMultiplier;
+            }
+
+            rb.velocity = speed * rb.velocity.normalized;
 
             if (Mathf.Abs(gameObject.transform.position.z-lastZ) < 0.1){
                 checkZDelay -= Time.deltaTime;
@@ -64,15 +76,16 @@ public class BallMovement : MonoBehaviour
         player.GetComponent<PlayerMovement>().LockBall(this);
         transform.SetParent(player);
         locked = true;
-        transform.localScale = new Vector3(0.7f,0.7f,0.7f);
+        GetComponent<SphereCollider>().enabled = false;
     }
 
     public void Launch(){
         if (locked){
             locked = false;
             transform.SetParent(null);
-            rb.AddForce(0, 0, startForce);
-            transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+            rb.velocity = startSpeed * new Vector3(0,0,1);
+            speed = startSpeed;
+            GetComponent<SphereCollider>().enabled = true;
         }
     }
 }
