@@ -70,7 +70,7 @@ public class LeaderBoard : MonoBehaviour
         }
         else if (state == 0 && !LootLockerSDKManager.CheckInitialized()) 
         {
-            // player_ID_Text.text = "Status: " + "offline";
+            player_ID_Text.text = "Status: " + "offline";
         }
         
     }
