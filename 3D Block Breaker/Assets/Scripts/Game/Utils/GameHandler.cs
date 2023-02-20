@@ -125,7 +125,7 @@ public class GameHandler : MonoBehaviour
         }
         else
         {
-            ball.GetComponent<BallMovement>().reset();
+            ball.GetComponent<BallMovement>().Lock();
             this.ball = ball;
         }
     }

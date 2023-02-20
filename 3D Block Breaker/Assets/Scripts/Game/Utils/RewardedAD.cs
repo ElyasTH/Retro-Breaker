@@ -89,7 +89,7 @@ public class RewardedAD : MonoBehaviour
         gameHandler.ball = this.ball.gameObject;
         player.SetActive(true);
         ball.gameObject.SetActive(true);
-        ball.reset();
+        ball.Lock();
         gameOverCanvas.SetActive(false);
         BlockDestroyerScript.init();
         Time.timeScale = 1f;

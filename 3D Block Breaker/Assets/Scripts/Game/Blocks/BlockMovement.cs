@@ -22,6 +22,7 @@ public class BlockMovement : MonoBehaviour
     public GameObject healParticle;
     public GameObject ballIncreaseParticle;
     public GameObject lockParticle;
+    public PlayerMovement player;
     public Canvas xpCanvas;
     
     public Transform uiCanvas;
@@ -37,6 +38,7 @@ public class BlockMovement : MonoBehaviour
     void Start()
     {
         gameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+        player = gameHandler.player.GetComponent<PlayerMovement>();
         gameHandler.blockCount += 1;
         uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").transform;
         diffculty = gameHandler.getlevel() + 3;
@@ -169,7 +171,7 @@ public class BlockMovement : MonoBehaviour
                     gameHandler.addBall();
                 }
                 else if (isLaunch){
-                    BallMovement.lockAndLaunch = true;
+                    player.SetLockAndLaunch(true);
                     gameHandler.PlaySound(gameHandler.powerUp);
                 }
                 gameHandler.addCombo();

@@ -7,21 +7,27 @@ public class PlayerMovement : MonoBehaviour
     public Transform player;
     public float max_acceleration = 1;
     public float current_acceleration = 0;
-    public BallMovement firstBall;
     public GameObject launchButton;
-
-    // [HideInInspector]
-    public List<BallMovement> locked_balls;
+    public GameObject powerUpLight;
+    public Transform lockPosition;
+    [SerializeField] private bool lockAndLaunch = false;
+    private float lockAndLaunchTime = 5f;
+    [SerializeField] private List<BallMovement> locked_balls;
 
     void Start(){
         locked_balls = new List<BallMovement>();
-        locked_balls.Add(firstBall);
     }
 
     void Update(){
-        if (locked_balls.Count > 0) launchButton.SetActive(true);
-        else launchButton.SetActive(false);
+        if (lockAndLaunch){
+            lockAndLaunchTime -= Time.deltaTime;
+            if (lockAndLaunchTime <= 0){
+                SetLockAndLaunch(false);
+                lockAndLaunchTime = 5f;
+            }
+        }
     }
+
     void FixedUpdate()
     {
         if (Input.GetKey("a") && current_acceleration >= -max_acceleration)
@@ -45,10 +51,36 @@ public class PlayerMovement : MonoBehaviour
         player.position = new Vector3(player.position.x + current_acceleration * speed * Time.deltaTime, player.position.y, player.position.z);
     }
 
-    public void LaunchBalls(){
+    public void LaunchBall(){
         if (locked_balls.Count > 0){
             locked_balls[0].Launch();
             locked_balls.Remove(locked_balls[0]);
+        }
+
+        if (locked_balls.Count > 0) launchButton.SetActive(true);
+        else launchButton.SetActive(false); 
+    }
+
+    public void LockBall(BallMovement ball){
+        if (!locked_balls.Contains(ball))
+            locked_balls.Add(ball);
+
+        ball.transform.position = new Vector3(lockPosition.position.x, lockPosition.position.y, lockPosition.position.z);
+
+        if (locked_balls.Count > 0) launchButton.SetActive(true);
+        else launchButton.SetActive(false); 
+    }
+
+    public void SetLockAndLaunch(bool value){
+        lockAndLaunch = value;
+        powerUpLight.SetActive(value);
+    }
+
+    void OnCollisionEnter(Collision col){
+        print("Collided");
+        if (col.gameObject.tag == "Ball" && lockAndLaunch && !col.gameObject.GetComponent<BallMovement>().locked){
+            print("Locked?");
+            col.gameObject.GetComponent<BallMovement>().Lock();
         }
     }
 }

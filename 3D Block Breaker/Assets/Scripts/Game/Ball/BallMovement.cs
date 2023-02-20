@@ -5,23 +5,19 @@ public class BallMovement : MonoBehaviour
 {
 
     public bool locked = true;
-    public Transform lockPosition;
     public Rigidbody rb;
     public int startForce = 150;
-    public GameObject player;
-    public GameObject powerUpLight;
+    public Transform player;
     public GameHandler gameHandler;
     private float lastZ = 0;
     public float checkZDelay = 3f;
-
-    public static bool lockAndLaunch = false;
-    private float lockAndLaunchTime = 5;
     public UnityEvent onCollisionEvent;
     public float minSpeed, maxSpeed;
 
     void Start(){
         rb.AddForce(0,0,startForce);
         transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+        if (locked) Lock();
     }
 
     private void FixedUpdate()
@@ -45,7 +41,7 @@ public class BallMovement : MonoBehaviour
             if (transform.position.z < -13f)
             {
                 checkZDelay = 3f;
-                if (gameHandler.ballCount == 1){
+                if (gameHandler.ballCount <= 1){
                     gameHandler.loseLife(this.gameObject);
                 }
                 else{
@@ -56,40 +52,27 @@ public class BallMovement : MonoBehaviour
             } 
         }
         else{
-            gameObject.transform.position = lockPosition.position;
+            rb.velocity = Vector3.zero;
         }
-
-        if (lockAndLaunch){
-            lockAndLaunchTime -= Time.deltaTime;
-            powerUpLight.SetActive(true);
-            if (lockAndLaunchTime <= 0){
-                lockAndLaunch = false;
-                lockAndLaunchTime = 5;
-                powerUpLight.SetActive(false);
-            }
-        }
-    }
-
-    public void reset(){
-        transform.position = new Vector3(0, 0.9f,  -5.22f);
-        locked = true;
-        player.GetComponent<PlayerMovement>().locked_balls.Add(this);
     }
 
     void OnCollisionEnter(Collision col){
-        if (col.gameObject.tag == "Player" && lockAndLaunch && !locked){
-            locked = true;
-            player.GetComponent<PlayerMovement>().locked_balls.Add(this);
-            gameHandler.resetCombo();
-        } 
         onCollisionEvent?.Invoke();
+    }
+
+    public void Lock(){
+        player.GetComponent<PlayerMovement>().LockBall(this);
+        transform.SetParent(player);
+        locked = true;
+        transform.localScale = new Vector3(0.7f,0.7f,0.7f);
     }
 
     public void Launch(){
         if (locked){
             locked = false;
-            rb.velocity = new Vector3(0,0,0);
+            transform.SetParent(null);
             rb.AddForce(0, 0, startForce);
+            transform.localScale = new Vector3(0.5f,0.5f,0.5f);
         }
     }
 }
