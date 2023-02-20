@@ -21,9 +21,10 @@ public class LeaderBoard : MonoBehaviour
     [Header("Text Fields")]
     public TextMeshProUGUI playerName;
     public TextMeshProUGUI scoreLeaderBoard;
+    public TextMeshProUGUI player_ID_Text;
 
     string player_Name, player_ID, player_Score;
-    int player_Rank, startingScore;
+    int player_Rank, startingScore, state = 0;
 
     private void Awake()
     {
@@ -58,6 +59,18 @@ public class LeaderBoard : MonoBehaviour
             }
             else
                 timer += Time.time;
+        }
+        else if (LootLockerSDKManager.CheckInitialized() && state == 0)
+        {
+            player_ID_Text.text = "Status: " + "online";
+            Color alpha = player_ID_Text.color;
+            alpha.a = 220;
+            player_ID_Text.color = alpha;
+           state = 1;
+        }
+        else if (state == 0 && !LootLockerSDKManager.CheckInitialized()) 
+        {
+            player_ID_Text.text = "Status: " + "offline";
         }
         
     }

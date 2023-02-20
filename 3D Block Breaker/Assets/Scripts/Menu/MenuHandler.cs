@@ -30,10 +30,22 @@ public class MenuHandler : MonoBehaviour
     int musicIDX = 0;
     string exclude = "(UnityEngine.AudioClip)";
 
+    [Header("Name Filter")]
+    public List<string> filterStringList;
+
     public LeaderBoard leaderBoard;
+
+    [Header("BannerAD")]
+    [SerializeField] private BannerAD banner;
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt("highScore") == 0) 
+        {
+            PlayerPrefs.SetInt("highScore", 1);
+            PlayerPrefs.SetInt("level", 1);
+        }
+
         musicIDX = PlayerPrefs.GetInt("MusicIDX");
         string result = clips[musicIDX].ToString().Replace(exclude, "");
         musicName.text = result;
@@ -41,6 +53,7 @@ public class MenuHandler : MonoBehaviour
         level.text = PlayerPrefs.GetInt("level").ToString();
         score.text = PlayerPrefs.GetInt("highScore").ToString();
         StartCoroutine(loginRoutine());
+
     }
 
     [System.Obsolete]
@@ -48,7 +61,6 @@ public class MenuHandler : MonoBehaviour
     {
         if (counter == 0 && loginIsDone)
         {
-            if (PlayerPrefs.GetInt("highScore") != 0)
                 StartCoroutine(leaderBoard.submitScoreRoutine());
             counter = 1;
         }
@@ -81,6 +93,15 @@ public class MenuHandler : MonoBehaviour
             IsValid = false;
             ErrorText.text = "Name Is Too Long";
         }
+        foreach (string filterString in filterStringList)
+        {
+            if (playerNameInput.text.Contains(filterString))
+            {
+                IsValid = false;
+                ErrorText.text = ("Restricted word: " + filterString);
+                break;
+            }
+        }
 
 
         if (IsValid)
@@ -108,6 +129,7 @@ public class MenuHandler : MonoBehaviour
     }
     public void onPlay()
     {
+        banner.ClearBanner();
         SceneManager.LoadScene(1);
         ad.Play();
     }
