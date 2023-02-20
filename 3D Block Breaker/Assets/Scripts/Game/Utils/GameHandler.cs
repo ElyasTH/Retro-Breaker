@@ -9,7 +9,6 @@ public class GameHandler : MonoBehaviour
     public int lifeCount = 3;
     public int blockCount = 0;
     // [HideInInspector]
-    public int ballCount = 1;
     private int score = 0;
     public float health = 1f;
     [HideInInspector]
@@ -108,11 +107,13 @@ public class GameHandler : MonoBehaviour
         if (lifeCount > 0) health = 1f;
         else health = 0f;
         isSliderChanging = true;
+        if (lifeCount <= 0) lifeCount = 0;
         LifeText.text = lifeCount.ToString();
         resetCombo();
         StartCoroutine(Shake(0.2f, 0.2f));
         Instantiate(deathEffect, player.transform.position, Quaternion.identity);
-        if (lifeCount == 0)
+
+        if (lifeCount <= 0)
         {
             PlayerPrefs.SetInt("level", currentLevel);
             if (PlayerPrefs.GetInt("highScore") < score)
@@ -125,12 +126,16 @@ public class GameHandler : MonoBehaviour
             ball.SetActive(false);
             GameOverCan.SetActive(true);
             GameOverCan.transform.position = new Vector3(cam.transform.position.x, GameOverCan.transform.position.y, GameOverCan.transform.position.z);
-            // this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
+            this.ball = GameObject.FindGameObjectsWithTag("Ball")[0];
         }
         else
         {
             ball.GetComponent<BallMovement>().Lock();
             this.ball = ball;
+        }
+
+        foreach (GameObject foundBall in GameObject.FindGameObjectsWithTag("Ball")){
+            if (foundBall != this.ball) Destroy(foundBall);
         }
     }
 
@@ -144,7 +149,6 @@ public class GameHandler : MonoBehaviour
 
     public void addBall(){
         PlaySound(powerUp);
-        ballCount++;
     }
 
     public void addScore(int score){

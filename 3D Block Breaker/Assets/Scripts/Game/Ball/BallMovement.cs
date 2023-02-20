@@ -53,11 +53,10 @@ public class BallMovement : MonoBehaviour
             if (transform.position.z < -13f)
             {
                 checkZDelay = 3f;
-                if (gameHandler.ballCount <= 1){
+                if (GameObject.FindGameObjectsWithTag("Ball").Length <= 1){
                     gameHandler.loseLife(this.gameObject);
                 }
                 else{
-                    gameHandler.ballCount--;
                     Destroy(this.gameObject);
                 }
                 gameHandler.resetCombo();
