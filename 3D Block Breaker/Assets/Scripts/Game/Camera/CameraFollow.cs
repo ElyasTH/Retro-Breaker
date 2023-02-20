@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 cmOffset;
 
-    [Range(-1f, 1.0f)]
+    [Range(0.1f, 1f)]
     public float smoothness = 0.5f;
 
 
@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 newPos = PlayerrTransform.position + cmOffset;
 
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothness);
+        transform.position = Vector3.Slerp(transform.position, newPos, smoothness*Time.deltaTime/600f);
     }
 
 

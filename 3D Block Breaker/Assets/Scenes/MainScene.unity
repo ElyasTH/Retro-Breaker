@@ -15592,7 +15592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerrTransform: {fileID: 678800059}
-  smoothness: 0.002
+  smoothness: 1000
 --- !u!114 &273714256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21635,7 +21635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeCount: 3
   blockCount: 0
-  ballCount: 1
   health: 1
   isGameStarted: 0
   deathEffect: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
@@ -99147,7 +99146,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1936744784
 RectTransform:
